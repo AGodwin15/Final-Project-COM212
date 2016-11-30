@@ -15,6 +15,7 @@ public class BST {
 		return t == null;
 	}
 //searches for the desired node through the given key
+	//USE SSN AS KEY TO SEARCH FOR GET....(then get all parts of student record) ---ANDREW 
 	public Node search(int key) {
 //checks first if tree is empty, returning null
 		if (t == null) {
