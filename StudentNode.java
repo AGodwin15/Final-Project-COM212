@@ -34,13 +34,13 @@ public class Student {
 	public void setSocial(int SSN) {
 		SSN = SSN0%10000;
 	}
-	public String getSocial() {
+	public int getSocial() {
 		return SSN;
 	}
 	public void setStunum(int num) {
 		studentNumber = num;
 	}
-	public String getStunum() {
+	public int getStunum() {
 		return studentNumber;
 	}
 	public void setAvg(int avg) {
