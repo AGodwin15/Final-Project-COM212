@@ -1,4 +1,4 @@
-/*Nate Brown
+/*Nate Brown and Edited by Andrew Godwin 
 October 31
 Program 4: this program is a binary search tree using linked nodes that should 
 test each of the BST functions
@@ -26,13 +26,18 @@ public class BST {
 			return searchR(t, key);
 		}
 	}
-//search function given the tree and the key
+//search function given the tree and the key to return the student record
 	private Node searchR(Node t2, int key) {
 		if (t2 == null) {
 			return null;
 		}
 		else if (key == t2.getKey()) {
-			return t2;
+			//return student record;
+			t2.getEmail();
+			t2.getSocial();
+			t2.getStunum();
+			t2.getLast();
+			t2.getavgRating();
 		}
 		else if (key < t2.getKey()) {
 			return searchR(t2.getLeft(), key); 
