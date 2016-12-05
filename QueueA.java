@@ -67,5 +67,4 @@ public class QueueA{
                System.out.println(array[i].getKey());
         }          
     }
-
 }
