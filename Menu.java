@@ -10,7 +10,7 @@ System.out.println("Hello, Welcome to our Idea Database!");
 		System.out.println();
 		System.out.println("(A) Create a new student record");
 		System.out.println("(B) Search for existing Student record");
-		System.out.println("(C) Print out list every student's name with their student #, SSN and avg score");
+		System.out.println("(C) Print out every student's name with their student #, SSN and avg score");
 		System.out.println("(D) Add new Idea using SSN search");
 		System.out.println("(E) Exit the program");
 		System.out.println();
