@@ -31,10 +31,10 @@ public class Student {
 		return loginName;
 	}
 	public void setSocial(int SSN) {
-		SSN = SSN0[]
+		SSN = SSN0;
 	}
 	public String getSocial() {
-		return SSN[]
+		return SSN;
 	}
 	public void setStunum(int num) {
 		studentNumber = num;
