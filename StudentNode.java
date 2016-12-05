@@ -31,7 +31,7 @@ public class Student {
 		return loginName;
 	}
 	public void setSocial(int SSN) {
-		SSN = SSN0;
+		SSN = SSN0%10000;
 	}
 	public String getSocial() {
 		return SSN;
