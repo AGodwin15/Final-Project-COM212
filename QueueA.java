@@ -17,7 +17,7 @@ public class QueueA{
 	public QueueA(){
 		n = 0;
 		front = 0;
-		array = new Node[100];
+		array = new Node[10];
 	}
 	//defines the front method 
 	public Node front(){
@@ -34,7 +34,7 @@ public class QueueA{
 	//this returns and removes the first node of the queue
 	public Node dequeue(){
 		int temp = front; 
-		front = (front+1)%100;
+		front = (front+1)%10;
 		//decrement n 
 		n--;
 		return array[temp];
@@ -42,7 +42,7 @@ public class QueueA{
 	//creates the enqueue method with node x as a parameter 
 	//this returns the queue with x added as the last element
 	public void enqueue(Node x){
-		end = (front + n)%100;
+		end = (front + n)%10;
 		array[end] = x;
 		end++;
 		n++;
@@ -61,7 +61,7 @@ public class QueueA{
            for(int i = front; i < end; i++) 
                System.out.println(array[i].getKey());
         else {
-           for(int i = front; i < 100; i++) 
+           for(int i = front; i < 10; i++) 
                System.out.println(array[i].getKey());          
            for(int i = 0; i < end; i++) 
                System.out.println(array[i].getKey());
