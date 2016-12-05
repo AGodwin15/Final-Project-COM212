@@ -3,6 +3,7 @@ October 31
 Program 4: this program is a binary search tree using linked nodes that should 
 test each of the BST functions
 */
+//NOTE FOR ANDREW: WE PROBABLY DONT NEED ALL OF THESE FUNCTIONS!!! MAKE SURE WE ONLY HAVE THE ONES WE NEED 
 
 public class BST {
 	private Node t;
@@ -15,24 +16,25 @@ public class BST {
 		return t == null;
 	}
 //searches for the desired node through the given key
-	//USE SSN AS KEY TO SEARCH FOR GET....(then get all parts of student record) ---ANDREW 
-	public Node search(int key) {
+	//this search method uses the SSN as the key to get the full student record 
+	public Node searchRecord(int key) {
 //checks first if tree is empty, returning null
 		if (t == null) {
 			return null;
 		}
 //otherwise, continue with the search given the key 
 		else {
-			return searchR(t, key);
+			return searchRrecord(t, key);
 		}
 	}
 	//Edited by Andrew Godwin 
 //search function given the tree and the key to return the student record
-	private Node searchR(Node t2, int key) {
+	//this function uses the SSN to get the full student record 
+	private Node searchRrecord(Node t2, int key) {
 		if (t2 == null) {
 			return null;
 		}
-		else if (key == t2.getKey()) {
+		else if (key == t2.getSocial()) {
 			//return student record;
 			t2.getEmail();
 			t2.getSocial();
@@ -40,13 +42,45 @@ public class BST {
 			t2.getLast();
 			t2.getavgRating();
 		}
-		else if (key < t2.getKey()) {
-			return searchR(t2.getLeft(), key); 
+		else if (key < t2.getSocial()) {
+			return searchRrecord(t2.getLeft(), key); 
 		}	
 		else {
-			return searchR(t2.getRight(), key);
+			return searchRrecord(t2.getRight(), key);
 		}
 	}
+	
+	//searches for the desired node through the given key
+	//this search method uses the student as the key to get the student's login email
+	public Node searchEmail(int key) {
+//checks first if tree is empty, returning null
+		if (t == null) {
+			return null;
+		}
+//otherwise, continue with the search given the key 
+		else {
+			return searchRemail(t, key);
+		}
+	}
+	//Edited by Andrew Godwin 
+//search function given the tree and the key to return the student record
+	//this function uses the student number to get the student's email login name 
+	private Node searchRemail(Node t2, int key) {
+		if (t2 == null) {
+			return null;
+		}
+		else if (key == t2.getStunum()) {
+			//return student email login 
+			t2.getEmail();
+		}
+		else if (key < t2.getStunum()) {
+			return searchRemail(t2.getLeft(), key); 
+		}	
+		else {
+			return searchRemail(t2.getRight(), key);
+		}
+	}
+	
 //checks if there is no root, inserting the new node as the root
 	public void insert(Node p) {
 		if (t == null) {
