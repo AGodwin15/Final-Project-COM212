@@ -31,6 +31,7 @@ System.out.println("Hello, Welcome to our Idea Database!");
 		}	
 	}
 		catch(IOException e) {
+			System.out.println();
 			System.out.println("Input Error " + e);
 			System.out.println("That was not a valid entry, please try again.");
 			System.out.println();
