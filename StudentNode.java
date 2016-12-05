@@ -8,15 +8,13 @@ public class Student {
 	private String loginName;
 	private int SSN;
 	private int studentNumber;
-	private Node idea;
 	private int avgRating;
 
-	public Student(String Lname, String Ename, int SSN0, int num, Node idea0, int avg) {
+	public Student(String Lname, String Ename, int SSN0, int num, int avg) {
 		lastName = Lname;
 		loginName = Ename;
 		SSN = SSN0;
 		studentNumber = num;
-		idea = idea0;
 		avgRating = avg;
 	}
 	
