@@ -30,6 +30,7 @@ public class Student {
 	public String getEmail() {
 		return loginName;
 	}
+	//edited by Andrew Godwin 
 	public void setSocial(int SSN) {
 		SSN = SSN0%10000;
 	}
