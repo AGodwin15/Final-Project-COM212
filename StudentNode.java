@@ -43,6 +43,13 @@ public class Student {
 	public int getStunum() {
 		return studentNumber;
 	}
+	//Changed getStunum() to getKey() for the purpose of organizing the BST in terms of the student number
+	public void setKey(int num) {
+		studentNumber = num;
+	}
+	public int getKey() {
+		return studentNumber;
+	}
 	public void setAvg(int avg) {
 		avgRating = avg;
 	}
