@@ -4,18 +4,20 @@ This is the student record structure
 */
 
 public class Student {
+	QueueA queue = new QueueA();
 	private String lastName;
 	private String loginName;
 	private int SSN;
 	private int studentNumber;
 	private int avgRating;
 
-	public Student(String Lname, String Ename, int SSN0, int num, int avg) {
+	public Student(String Lname, String Ename, int SSN0, int num, int avg, QueueA ideaQueue) {
 		lastName = Lname;
 		loginName = Ename;
 		SSN = SSN0;
 		studentNumber = num;
 		avgRating = avg;
+		queue = ideaQueue;
 	}
 	
 	public void setLast(String Lname) {
