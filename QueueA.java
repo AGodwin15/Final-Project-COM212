@@ -67,10 +67,11 @@ public class QueueA{
 			String description = in.next();
 			System.out.println("Enter the idea rating: ");
 			int rating = in.nextInt();
-			Node idea = new Idea(SSN, description, rating);
+			Node idea = new Node(SSN, description, rating);
 			in.nextLine();
 			counter = counter + 1;
 			array[i] = idea;
+		enqueue(idea);
 			
 		}
 	
