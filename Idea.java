@@ -11,8 +11,8 @@ public class Idea{
 	private int ideaRating;
 
 	  public Idea(int ideaNum, int SSN, String descr, int ideaRate) {
-		  ideaNumber = ideaNum;
-		  studentSSN = SSN;
+		ideaNumber = ideaNum;
+		studentSSN = SSN;
   		description = descr;
 	  	ideaRating = ideaRate;
 	  }
