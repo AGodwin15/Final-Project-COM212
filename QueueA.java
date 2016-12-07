@@ -5,6 +5,8 @@
 size of 100 nodes. This program adds some nodes and tests each of 
 the queue functions  */
 
+
+
 //creates the StackA (array) class 
 public class QueueA{ 
 	//instance variables for the class 
@@ -12,6 +14,7 @@ public class QueueA{
 	private Node [] array;
 	private int front;
 	private int end;
+	BST bst = new BST();
 
 	//creates the QueueA method that defines the array of 100 nodes
 	public QueueA(){
@@ -52,6 +55,15 @@ public class QueueA{
 		//boolean to see if the number of elements is zero 
 		return n == 0;
 	}
+	//this function adds an idea to the student nodes by accessing the BST 
+	public void addIdeaStudent(int key){
+		bst.BSTsearchRecord(key);
+		System.out.println("Enter the social security number: ");
+		System.out.println("Enter the idea description: ");
+		System.out.println("Enter the idea rating: ");
+		Idea idea = new Idea(social, description, rating);
+		in.nextLine();
+		
 	
 	// printQueue method for QueueA
     public void printQueue() {
