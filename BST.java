@@ -7,7 +7,7 @@ test each of the BST functions
 //ALSO NOTE FOR ANDREW: CALL THE QUEUE FUNCTIONS IN THIS CLASS TO ADD A NEW IDEA 
 //SO, WHEN SEARCHING WITH SSN TO FIND A STUDENT, WE THEN ADD THE IDEA TO THE STUDENT'S NODE 
 public class BST {
-	public QueueA QueueA.java
+	//public QueueA QueueA.java
 	private Node t;
 //create an empty tree	
 	public BST() {
