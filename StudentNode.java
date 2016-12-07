@@ -1,16 +1,21 @@
 /*
+Done by Nate Brown
 11/30
 This is the student record structure
 */
 
 public class Student {
+//these are the instance variables for the student record
+	//queue of ideas in student Node
 	QueueA queue = new QueueA();
+	//the following are instance variables in the student Node
 	private String lastName;
 	private String loginName;
 	private int SSN;
 	private int studentNumber;
 	private int avgRating;
 
+//establishing the variables names that are going to be called upon in future programs
 	public Student(String Lname, String Ename, int SSN0, int num, int avg, QueueA ideaQueue) {
 		lastName = Lname;
 		loginName = Ename;
@@ -19,10 +24,11 @@ public class Student {
 		avgRating = avg;
 		queue = ideaQueue;
 	}
-	
+//sets the variable ect...
 	public void setLast(String Lname) {
 		lastName = Lname;
 	}
+//returns the variable ect...
 	public String getLast() {
 		return lastName;
 	}
@@ -45,7 +51,7 @@ public class Student {
 	public int getStunum() {
 		return studentNumber;
 	}
-	//Changed getStunum() to getKey() for the purpose of organizing the BST in terms of the student number
+	//Nate* Changed getStunum() to getKey() for the purpose of organizing the BST in terms of the student number
 	public void setKey(int num) {
 		studentNumber = num;
 	}
