@@ -78,9 +78,13 @@ public class BST {
 		else if (key < t2.getStunum()) {
 			return searchRemail(t2.getLeft(), key); 
 		}	
-		else {
+		else if (key > t2.getStunum()){
 			return searchRemail(t2.getRight(), key);
 		}
+		else {
+			//create new student node
+		}
+			
 	}
 	
 //checks if there is no root, inserting the new node as the root
