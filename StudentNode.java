@@ -13,15 +13,14 @@ public class Student {
 	private String loginName;
 	private int SSN;
 	private int studentNumber;
-	private int avgRating;
+
 
 //establishing the variables names that are going to be called upon in future programs
-	public Student(String Lname, String Ename, int SSN0, int num, int avg, QueueA ideaQueue) {
+	public Student(String Lname, String Ename, int SSN0, int num, QueueA ideaQueue) {
 		lastName = Lname;
 		loginName = Ename;
 		SSN = SSN0;
 		studentNumber = num;
-		avgRating = avg;
 		queue = ideaQueue;
 	}
 //sets the variable ect...
@@ -57,11 +56,5 @@ public class Student {
 	}
 	public int getKey() {
 		return studentNumber;
-	}
-	public void setAvg(int avg) {
-		avgRating = avg;
-	}
-	public int getAvg() {
-		return avgRating;
 	}
 }
