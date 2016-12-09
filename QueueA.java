@@ -69,7 +69,7 @@ public class QueueA{
 			int rating = in.nextInt();
 			Node idea = new Node(SSN, description, rating);
 			in.nextLine();
-			counter = counter + 1;
+			counter++;
 			array[i] = idea;
 		enqueue(idea);
 			
