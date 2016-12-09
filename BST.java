@@ -6,6 +6,7 @@ test each of the BST functions
 //NOTE FOR ANDREW: WE PROBABLY DONT NEED ALL OF THESE FUNCTIONS!!! MAKE SURE WE ONLY HAVE THE ONES WE NEED 
 //ALSO NOTE FOR ANDREW: CALL THE QUEUE FUNCTIONS IN THIS CLASS TO ADD A NEW IDEA 
 //SO, WHEN SEARCHING WITH SSN TO FIND A STUDENT, WE THEN ADD THE IDEA TO THE STUDENT'S NODE 
+import java.util.scanner;
 public class BST {
 	//public QueueA QueueA.java
 	private Node t;
@@ -82,9 +83,25 @@ public class BST {
 			return searchRemail(t2.getRight(), key);
 		}
 		else {
-			//create new student node
+			createStudentNode();
 		}
 			
+	}
+	
+	public void createStudentNode(){
+		Scanner in = new Scanner(System.in);
+		//for (int i = 0; i<n; i++){
+		System.out.println("Enter last name: ");
+		String lastName = in.next();
+		System.out.println("Enter login name: ");
+		String loginName = in.next();
+		System.out.println("Enter the SSN: ");
+		int SSN = in.nextInt();
+		System.out.println("Enter student number: ");
+		int studentNumber = in.nextInt();
+		Node student = new Node(lastName, loginName, SSN, studentNumber);
+		in.nextLine();
+		array[i] = student;
 	}
 	
 //checks if there is no root, inserting the new node as the root
