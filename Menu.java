@@ -85,7 +85,15 @@ System.out.println("Hello, Welcome to our Idea Database!");
 			bst.printTree();
 		}	
 		else if (input == "D" || input == "d") {
-			bst.addIdeaStudent()
+			try {
+				System.out.println("Input the SSN of the student you would like to add the idea to: ");
+				String input9 = in.next();
+				int input10 = Integer.parseInt(input9)
+				if (input10 > 99999999 && input10 < 1000000000){
+					bst.addIdeaStudent(input10); }}
+				catch(NumberFormatException e){
+					System.out.println();
+					System.out.println(e + "is an invalid SSN, please try again");}
 		}	
 	}
 		catch(IOException e) {
