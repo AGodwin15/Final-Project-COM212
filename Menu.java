@@ -3,11 +3,36 @@ import java.util.Scanner;
 import java.io.IOException;
 import java.lang.NumberFormatException;
 
-public class Menu implements java.io.Serializable{
+public class Menu implements{ //java.io.Serializable{
 	BST bst = new BST();
 	public static void main(String[] args) {
 		
 System.out.println("Hello, Welcome to our Idea Database!");
+/*		System.out.println("Would you like to");
+		System.out.println("(A) Start a new blank database");
+		System.out.println("(B) Add to a preexisting database");
+		String dataInput = in.next();
+// De-serialize, put this at the beginning when you want to load something pre-saved in,
+// note: it might error out if the text file doesn't exsist/ was wiped from RAM
+		try{
+			if (dataInput == "B" || "b"){
+				try {
+			FileInputStream fileIn = new FileInputStream("output.txt");
+			ObjectInputStream in = new ObjectInputStream(fileIn);
+			BST = (StudentBST) in.readObject();
+			QueueA = (IdeaQueue) in.readObject();
+			Heap = (IdeaHeap) in.readObject();
+			in.close();
+			fileIn.close();
+			} 
+			catch(IOException i) {
+			i.printStackTrace();
+			} 
+			catch(ClassNotFoundException j) {
+			
+// Note: for these^, BST, QueueA, etc are new objects we are assiging the stuff from the text fileout.close();
+			}}
+*/
 	while (input != "E" || input !=  "e"){	// while loop
 		try {		
 		Scanner in = new Scanner(System.in);
@@ -149,7 +174,7 @@ System.out.println("Hello, Welcome to our Idea Database!");
 
 	finally {
 		//Serialize, put this right before quitting the program
-		try {
+		/*try {
 			FileOutputStream fileOut = new FileOutputStream("output.txt");
 			ObjectOutputStream out = new ObjectOutputStream(fileOut);
 			out.writeObject(BST);
@@ -166,22 +191,9 @@ System.out.println("Hello, Welcome to our Idea Database!");
 //De-serialize, put this at the beginning when you want to load something pre-saved in,
   //      note: it might error out if the text file doesn't exsist/ was wiped from RAM
 
-		try {
-			FileInputStream fileIn = new FileInputStream("output.txt");
-			ObjectInputStream in = new ObjectInputStream(fileIn);
-			BST = (StudentBST) in.readObject();
-			QueueA = (IdeaQueue) in.readObject();
-			Heap = (IdeaHeap) in.readObject();
-			in.close();
-			fileIn.close();
-			} 
-			catch(IOException i) {
-			i.printStackTrace();
-			} 
-			catch(ClassNotFoundException j) {
-			j.printStackTrace();
-			}
+		
 
-//Note: for these^, BST, QueueA, etc are new objects we are assiging the stuff from the text fileout.close();
-	}
+//Note: for these^, BST, QueueA, etc are new objects we are assiging the stuff from the text file
+*/
+out.close();	
 }}}
