@@ -3,7 +3,7 @@ import java.util.Scanner;
 import java.io.IOException;
 import java.lang.NumberFormatException;
 
-public class Menu {;
+public class Menu implements java.io.Serializable{
 	BST bst = new BST();
 	public static void main(String[] args) {
 		
