@@ -72,7 +72,9 @@ public class QueueA{
 			in.nextLine();
 			counter++;
 			array[i] = idea;
+		//adds the idea into the queue of ideas on the student records (latest 10 ideas) 
 		enqueue(idea);
+		//inserts the idea node into the heap (pool of ideas) so that it can be updated
 		heap.HeapInsert(idea);
 			
 		}
