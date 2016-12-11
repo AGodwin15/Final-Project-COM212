@@ -15,6 +15,7 @@ public class QueueA{
 	private int front;
 	private int end;
 	BST bst = new BST();
+	Heap heap = new Heap();
 
 	//creates the QueueA method that defines the array of 100 nodes
 	public QueueA(){
@@ -72,6 +73,7 @@ public class QueueA{
 			counter++;
 			array[i] = idea;
 		enqueue(idea);
+		heap.HeapInsert(idea);
 			
 		}
 	
