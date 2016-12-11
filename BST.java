@@ -97,13 +97,14 @@ public class BST {
 		String loginName = in.next();
 		System.out.println("Enter the SSN: ");
 		int SSN = in.nextInt();
+		SSN = (SSN%10000);
 		System.out.println("Enter student number: ");
 		int studentNumber = in.nextInt();
 		Node student = new Node(lastName, loginName, SSN, studentNumber);
 		in.nextLine();
 		array[i] = student;
 		insert(student);
-		}
+	}
 	
 //checks if there is no root, inserting the new node as the root
 	public void insert(Node p) {
