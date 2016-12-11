@@ -56,9 +56,9 @@ public class QueueA{
 		//boolean to see if the number of elements is zero 
 		return n == 0;
 	}
-	//this function adds an idea to the student nodes by accessing the BST 
-	public void addIdeaStudent(int key){
-		bst.BSTsearchRecord(key);
+	//this function adds an idea to the student nodes by accessing the BST after searching with SSN
+	public void addIdeaStudent(int searchKey){
+		bst.BSTsearchRecord(searchKey);
 		counter = 0; 
 		Scanner in = new Scanner(System.in);
 		//asks the user how many ideas he or she wants to add 
