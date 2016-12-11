@@ -104,7 +104,8 @@ public class BST {
 		in.nextLine();
 		array[i] = student;
 		insert(student);
-	}
+	}	
+		
 	
 //checks if there is no root, inserting the new node as the root
 	public void insert(Node p) {
