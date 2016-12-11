@@ -87,7 +87,7 @@ public class BST {
 		}
 			
 	}
-	
+	//Edited by Andrew 
 	public void createStudentNode(){
 		Scanner in = new Scanner(System.in);
 		//for (int i = 0; i<n; i++){
@@ -260,20 +260,30 @@ public class BST {
 		printTree2(t);
 		System.out.println();
     }
-//prints the new tree's keys based on positions 
+//prints the new tree's keys based on positions
+	//Andrew edited 
     private void printTree2(Node tree) {
 	if (tree != null) {
-	    System.out.print(tree.getKey() + " ");
-            if (tree.getLeft() != null)
-	        System.out.print("Left: " + tree.getLeft().getKey() + " ");
-            else
-                System.out.print("Left: null ");
-            if (tree.getRight() != null)
-	        System.out.println("Right: " + tree.getRight().getKey() + " ");
-            else
-                System.out.println("Right: null ");
-	    printTree2(tree.getLeft());
-	    printTree2(tree.getRight());
+		System.out.print(tree.getKey() + " ");
+		System.out.print(tree.getSocial() + " ");
+		System.out.print(tree.getLastName() + " ");
+		System.out.print(tree.getRating() + " ");		
+		
+            if (tree.getLeft() != null){
+	        System.out.print(tree.getLeft().getKey() + " ");
+		System.out.print(tree.getLeft().getSocial() + " ");
+		System.out.print(tree.getLeft().getLastName() + " ");
+		System.out.print(tree.getLeft().getRating() + " ");
+	    }	
+            else if (tree.getRight() != null){
+		System.out.print(tree.getRight().getKey() + " ");
+		System.out.print(tree.getRight().getSocial() + " ");
+		System.out.print(tree.getRight().getLastName() + " ");
+		System.out.print(tree.getRight().getRating() + " ");	
+	    }	
+            else{
+                System.out.println("There are no student records to show.");
+	    }
 	}
     } 
 }
