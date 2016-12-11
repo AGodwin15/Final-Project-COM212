@@ -47,10 +47,10 @@ System.out.println("Hello, Welcome to our Idea Database!");
 		else if (input == "B" || input == "b") {	
 			try {
 			Scanner in = new Scanner(System.in);
-			System.out.println();
+			System.out.println();	
 			System.out.println("(A) Search using SSN");
 			System.out.println("(B) Search using Student Number");
-			System.out.println("Which would you like to do (Ex:'A': ");
+			System.out.println("Which would you like to do (Ex:'A'): ");
 			System.out.println();
 			String input7 = in.next();
 			if (input7 == "A" || input7 == "a") { // Search using SSN
@@ -59,7 +59,52 @@ System.out.println("Hello, Welcome to our Idea Database!");
 				String input7 = in.next();
 				int input3 = Integer.parseInt(input7)
 				if (input3 > 99999999 && input3 < 1000000000){
-					bst.SearchRecord(input3); }}
+					bst.SearchRecord(input3); 
+					System.out.println("Would you like to:");
+					System.out.println("(A) Delete the Student Record");
+					System.out.println("(B) Edit the Last Name or Login Name of the record");
+					System.out.println("Which would you like to do (Ex:'A'): ");
+					String input11 = in.next();
+					try{
+						if (input11 == "A" || input11 == "a"){
+							Node a = searchRecord(input3);
+							bst.delete(a);
+							System.out.println("Student Record has been deleted");}
+						else if(input11 == "B" || input11 == "b"){
+							System.out.println("Would you like to:");
+							System.out.println("(A) Change Last Name");
+							System.out.println("(B) Change Login Name");
+							System.out.println("(C) Change Both");
+							String input12 = in.next();
+							try{
+								if (input12 == "A" || input12 == "a"){
+									Node a = searchRecord(input3);
+									System.out.println("Enter new Last Name: ");
+									String input13 = in.next();
+									a.setLast(input13);}
+								else if (input12 == "B" || input12 == "b"){
+									Node a = searchRecord(input3);
+									System.out.println("Enter new Login Name: ");
+									String input14 = in.next();
+									a.setEmail(input14);}
+								else if (input12 == "C" || input12 == "c"){
+									Node a = searchRecord(input3);
+									System.out.println("Enter new Last Name: ");
+									String input13 = in.next();
+									a.setLast(input13);
+									System.out.println("Enter new Login Name: ");
+									String input14 = in.next();
+									a.setEmail(input14);}}
+							catch(IOException e) {
+								System.out.println("Input Error: " + e);
+								System.out.println("That was not a valid entry, please try again.");
+								System.out.println();}
+						}
+					catch(IOException e) {
+						System.out.println("Input Error: " + e);
+						System.out.println("That was not a valid entry, please try again.");
+						System.out.println();}
+				}}
 				catch(NumberFormatException e){
 					System.out.println();
 					System.out.println(e + "is an invalid SSN, please try again");
