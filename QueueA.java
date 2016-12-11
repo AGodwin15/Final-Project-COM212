@@ -61,7 +61,10 @@ public class QueueA{
 		bst.BSTsearchRecord(key);
 		counter = 0; 
 		Scanner in = new Scanner(System.in);
-		for (int i = 0; i<10; i++){
+		//asks the user how many ideas he or she wants to add 
+		System.out.println("How many ideas would you like to add?");
+		int input = in.next();
+		for (int i = 0; i<input; i++){
 			System.out.println("Enter the social security number: ");
 			int SSN = in.nextInt();
 			System.out.println("Enter the idea description: ");
