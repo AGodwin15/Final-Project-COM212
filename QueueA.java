@@ -16,12 +16,14 @@ public class QueueA{
 	private int end;
 	BST bst = new BST();
 	Heap heap = new Heap();
+	private int counter;
 
 	//creates the QueueA method that defines the array of 100 nodes
 	public QueueA(){
 		n = 0;
 		front = 0;
 		array = new Node[10];
+		counter = 0;
 	}
 	//defines the front method 
 	public Node front(){
@@ -59,11 +61,11 @@ public class QueueA{
 	//this function adds an idea to the student nodes by accessing the BST after searching with SSN
 	public void addIdeaStudent(int searchKey){
 		bst.BSTsearchRecord(searchKey);
-		counter = 0; 
 		Scanner in = new Scanner(System.in);
 		//asks the user how many ideas he or she wants to add 
 		System.out.println("How many ideas would you like to add?");
-		int input = in.next();
+		String userInput = in.next();
+		int input = Integer.parseInt(userInput);
 		for (int i = 0; i<input; i++){
 			System.out.println("Enter the social security number: ");
 			int SSN = in.nextInt();
@@ -71,15 +73,14 @@ public class QueueA{
 			String description = in.next();
 			System.out.println("Enter the idea rating: ");
 			int rating = in.nextInt();
-			Node idea = new Node(SSN, description, rating);
-			in.nextLine();
 			counter++;
+			Node idea = new Node(SSN, description, rating, counter);
+			in.nextLine();
 			array[i] = idea;
 		//adds the idea into the queue of ideas on the student records (latest 10 ideas) 
 		enqueue(idea);
 		//inserts the idea node into the heap (pool of ideas) so that it can be updated
-		heap.HeapInsert(idea);
-			
+		heap.HeapInsert(idea);	
 		}
 	}
 	
