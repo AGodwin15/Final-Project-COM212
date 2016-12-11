@@ -90,7 +90,9 @@ System.out.println("Hello, Welcome to our Idea Database!");
 			bst.printTree();
 		}	
 		else if (input == "D" || input == "d") {
-			
+			System.out.println("Please enter the Social Security Number of the student you would like to add the idea to:");
+			int ssnInput = in.next();
+			bst.addIdeaStudent(ssnInput);
 		}	
 	}
 		catch(IOException e) {
