@@ -22,15 +22,7 @@ System.out.println("Hello, Welcome to our Idea Database!");
 		System.out.println("What would you like to do? (Ex:'A'): "); // user prompt
 		String input = in.next();
 		if (input == "A" || input == "a") {	
-			System.out.println("Enter the Student's Last Name: ");
-			String input1 = in.next();
-			System.out.println("Enter the Student's Email Login Name: ");
-			String input2 = in.next();
-			System.out.println("Enter the Student's Student Number: ");
-			String input3 = in.next();
-			System.out.println("Enter the Student's SSN: ");
-			String input4 = in.next();
-			Student student = new Student(input1, input2, Integer.parseInt(input4), Integer.parseInt(input3));
+			bst.createStudentNode()
 			while (input5 != "B" || input5 != "b"){
 				try{
 					System.out.println("Would you like to enter an Idea? (Ex. A) ");
@@ -41,8 +33,9 @@ System.out.println("Hello, Welcome to our Idea Database!");
 						try{
 							System.out.println("Enter 9-digit SSN: ");
 							String input6 = in.next();
-							if (Integer.parseInt(input6) > 99999999 && Integer.parseInt(input6) < 1000000000){
-								bst.addIdeaStudent(Integer.parseInt(input6)); }}
+							int input2 = Integer.parseInt(input6)
+							if (input2 > 99999999 && input2 < 1000000000){
+								bst.addIdeaStudent(input2); }}
 						catch(NumberFormatException e){
 							System.out.println();
 							System.out.println(e + "is an invalid SSN, please try again");}}}
@@ -59,13 +52,14 @@ System.out.println("Hello, Welcome to our Idea Database!");
 			System.out.println("(B) Search using Student Number");
 			System.out.println("Which would you like to do (Ex:'A': ");
 			System.out.println();
-			String input = in.next();
-			if (input == "A" || input == "a") { // Search using SSN
+			String input7 = in.next();
+			if (input7 == "A" || input7 == "a") { // Search using SSN
 				try {
 				System.out.println("Enter 9-digit SSN: ");
-				String input = in.next();
-				if (Integer.parseInt(input) > 99999999 && Integer.parseInt(input) < 1000000000){
-					bst.SearchRecord(Integer.parseInt(input)); }}
+				String input7 = in.next();
+				int input3 = Integer.parseInt(input7)
+				if (input3 > 99999999 && input3 < 1000000000){
+					bst.SearchRecord(input3); }}
 				catch(NumberFormatException e){
 					System.out.println();
 					System.out.println(e + "is an invalid SSN, please try again");
@@ -73,9 +67,10 @@ System.out.println("Hello, Welcome to our Idea Database!");
 			else if (input == "B" || input == "b") {	// Search using student number
 				try {
 				System.out.println("Enter 4-digit Student Number: ");
-				String input = in.next();
-				if (Integer.parseInt(input) > 999 && Integer.parseInt(input) < 10000){
-					bst.SearchEmail(Integer.parseInt(input)); }}
+				String input8 = in.next();
+				int input4 = Integer.parseInt(input8)
+				if (input4 > 999 && input4 < 10000){
+					bst.SearchEmail(input4); }}
 				catch(NumberFormatException e){
 					System.out.println();
 					System.out.println(e + "is an invalid Student Number, please try again");
@@ -90,9 +85,7 @@ System.out.println("Hello, Welcome to our Idea Database!");
 			bst.printTree();
 		}	
 		else if (input == "D" || input == "d") {
-			System.out.println("Please enter the Social Security Number of the student you would like to add the idea to:");
-			int ssnInput = in.next();
-			bst.addIdeaStudent(ssnInput);
+			bst.addIdeaStudent()
 		}	
 	}
 		catch(IOException e) {
