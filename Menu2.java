@@ -60,10 +60,12 @@ System.out.println("Hello, Welcome to our Idea Database!");
 							String input6 = in.next();
 							int input2 = Integer.parseInt(input6);
 							if (input2 > 99999999 && input2 < 1000000000){
-								bst.addIdeaStudent(input2); }}
+								bst.addIdeaStudent(input2); }
+						}
 						catch(NumberFormatException e){
 							System.out.println();
-							System.out.println(e + "is an invalid SSN, please try again");}}}
+							System.out.println(e + "is an invalid SSN, please try again");}}
+				}
 				catch(IOException e) {
 					System.out.println("Input Error: " + e);
 					System.out.println("That was not a valid entry, please try again.");
@@ -191,7 +193,7 @@ System.out.println("Hello, Welcome to our Idea Database!");
 			System.out.println("That was not a valid entry, please try again.");
 			System.out.println();
 	}
-
+}
 	finally {
 		//Serialize, put this right before quitting the program
 		/*try {
@@ -215,7 +217,5 @@ System.out.println("Hello, Welcome to our Idea Database!");
 		out.close();	
 	}
 }
+
 }
-
-
-
