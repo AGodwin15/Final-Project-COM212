@@ -81,6 +81,7 @@ public class QueueA{
 		heap.HeapInsert(idea);
 			
 		}
+	}
 	
 	// printQueue method for QueueA
     public void printQueue() {
