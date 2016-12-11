@@ -1,12 +1,14 @@
 // Matt Gaetz
 import java.util.Scanner;
+import java.io.IOException;
+import java.lang.NumberFormatException;
 
 public class Menu {;
 	BST bst = new BST();
 	public static void main(String[] args) {
 		
 System.out.println("Hello, Welcome to our Idea Database!");
-	while (input != "E" || "e"){	// while loop
+	while (input != "E" || input !=  "e"){	// while loop
 		try {		
 		Scanner in = new Scanner(System.in);
 		System.out.println("Choose from one of the following options to proceed:");
@@ -19,28 +21,28 @@ System.out.println("Hello, Welcome to our Idea Database!");
 		System.out.println();
 		System.out.println("What would you like to do? (Ex:'A'): "); // user prompt
 		String input = in.next();
-		if (input == "A" || "a") {	
+		if (input == "A" || input == "a") {	
 			System.out.println("Enter the Student's Last Name: ");
 			String input1 = in.next();
 			System.out.println("Enter the Student's Email Login Name: ");
 			String input2 = in.next();
 			System.out.println("Enter the Student's Student Number: ");
-			int input3 = in.next();
+			String input3 = in.next();
 			System.out.println("Enter the Student's SSN: ");
-			int input4 = in.next();
-			Student student = new Student(input1, input2, input4, imput3);
-			while (input5 != "B" || "b"){
+			String input4 = in.next();
+			Student student = new Student(input1, input2, Integer.parseInt(input4), Integer.parseInt(input3));
+			while (input5 != "B" || input5 != "b"){
 				try{
 					System.out.println("Would you like to enter an Idea? (Ex. A) ");
 					System.out.println("(A) Yes");
 					System.out.println("(B) No");
 					String input5 = in.next();
-					if (input5 == "A" || "a"){
+					if (input5 == "A" || input5 ==  "a"){
 						try{
 							System.out.println("Enter 9-digit SSN: ");
-							int input6 = in.next();
-							if (input6 > 99999999 && input6 < 1000000000){
-								bst.addIdeaStudent(input6); }}
+							String input6 = in.next();
+							if (Integer.parseInt(input6) > 99999999 && Integer.parseInt(input6) < 1000000000){
+								bst.addIdeaStudent(Integer.parseInt(input6)); }}
 						catch(NumberFormatException e){
 							System.out.println();
 							System.out.println(e + "is an invalid SSN, please try again");}}}
@@ -49,7 +51,7 @@ System.out.println("Hello, Welcome to our Idea Database!");
 					System.out.println("That was not a valid entry, please try again.");
 					System.out.println();}}
 		}	
-		else if (input == "B" || "b") {	
+		else if (input == "B" || input == "b") {	
 			try {
 			Scanner in = new Scanner(System.in);
 			System.out.println();
@@ -58,22 +60,22 @@ System.out.println("Hello, Welcome to our Idea Database!");
 			System.out.println("Which would you like to do (Ex:'A': ");
 			System.out.println();
 			String input = in.next();
-			if (input == "A" || "a") { // Search using SSN
+			if (input == "A" || input == "a") { // Search using SSN
 				try {
 				System.out.println("Enter 9-digit SSN: ");
-				int input = in.next();
-				if (input > 99999999 && input < 1000000000){
-					bst.SearchRecord(input); }}
+				String input = in.next();
+				if (Integer.parseInt(input) > 99999999 && Integer.parseInt(input) < 1000000000){
+					bst.SearchRecord(Integer.parseInt(input)); }}
 				catch(NumberFormatException e){
 					System.out.println();
 					System.out.println(e + "is an invalid SSN, please try again");
 			}}
-			else if (input == "B" || "b") {	// Search using student number
+			else if (input == "B" || input == "b") {	// Search using student number
 				try {
 				System.out.println("Enter 4-digit Student Number: ");
-				int input = in.next();
-				if (input > 999 && input < 10000){
-					bst.SearchEmail(input); }}
+				String input = in.next();
+				if (Integer.parseInt(input) > 999 && Integer.parseInt(input) < 10000){
+					bst.SearchEmail(Integer.parseInt(input)); }}
 				catch(NumberFormatException e){
 					System.out.println();
 					System.out.println(e + "is an invalid Student Number, please try again");
@@ -84,10 +86,10 @@ System.out.println("Hello, Welcome to our Idea Database!");
 				System.out.println();}
 			}
 			
-		else if (input == "C" || "c") {
+		else if (input == "C" || input == "c") {
 			bst.printTree();
 		}	
-		else if (input == "D" || "d") {
+		else if (input == "D" || input == "d") {
 			
 		}	
 	}
