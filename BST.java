@@ -275,5 +275,5 @@ public class BST {
 	    printTree2(tree.getLeft());
 	    printTree2(tree.getRight());
 	}
-    }
+    } 
 }
