@@ -23,16 +23,17 @@ System.out.println("Hello, Welcome to our Idea Database!");
 			if (dataInput.equals("B") || dataInput.equals("b")){
 				try {
 						FileInputStream fileIn = new FileInputStream("output.txt");
-							ObjectInputStream inn = new ObjectInputStream(fileIn);
-								bst = (BST) inn.readObject();
-									queue = (QueueA) inn.readObject();
-										heap = (Heap) inn.readObject();
-											bst2 = (BST2) inn.readObject();
-												inn.close();
-													fileIn.close();
+						ObjectInputStream inn = new ObjectInputStream(fileIn);
+						bst = (BST) inn.readObject();
+						queue = (QueueA) inn.readObject();
+						heap = (Heap) inn.readObject();
+						bst2 = (BST2) inn.readObject();
+						inn.close();
+						fileIn.close();
 						} 
+
 						catch(IOException i) {
-								i.printStackTrace();
+							i.printStackTrace();
 						} 
 						catch(ClassNotFoundException j) {
 							j.printStackTrace();
