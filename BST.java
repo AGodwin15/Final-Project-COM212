@@ -6,6 +6,7 @@ test each of the BST functions
 //NOTE FOR ANDREW: WE PROBABLY DONT NEED ALL OF THESE FUNCTIONS!!! MAKE SURE WE ONLY HAVE THE ONES WE NEED 
 //ALSO NOTE FOR ANDREW: CALL THE QUEUE FUNCTIONS IN THIS CLASS TO ADD A NEW IDEA 
 //SO, WHEN SEARCHING WITH SSN TO FIND A STUDENT, WE THEN ADD THE IDEA TO THE STUDENT'S NODE 
+//THIS IS FOR THE STUNUM SEARCH!!
 import java.util.scanner;
 public class BST {
 	//public QueueA QueueA.java
@@ -20,7 +21,7 @@ public class BST {
 	}
 //searches for the desired node through the given key
 	//this search method uses the SSN as the key to get the full student record 
-	public Node searchRecord(int key) {
+	/*public Node searchRecord(int key) {
 //checks first if tree is empty, returning null
 		if (t == null) {
 			return null;
@@ -51,7 +52,7 @@ public class BST {
 		else {
 			return searchRrecord(t2.getRight(), key);
 		}
-	}
+	}*/
 	
 	//searches for the desired node through the given key
 	//this search method uses the student as the key to get the student's login email
@@ -88,7 +89,7 @@ public class BST {
 			
 	}
 	//Edited by Andrew 
-	public void createStudentNode(){
+	/*public void createStudentNode(){
 		Scanner in = new Scanner(System.in);
 		//for (int i = 0; i<n; i++){
 		System.out.println("Enter last name: ");
@@ -106,7 +107,7 @@ public class BST {
 		insert(student);
 	}	
 		
-	
+	*/
 //checks if there is no root, inserting the new node as the root
 	public void insert(Node p) {
 		if (t == null) {
