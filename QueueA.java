@@ -15,7 +15,6 @@ public class QueueA implements java.io.Serializable{
 	private int front;
 	private int end;
 	BST bst = new BST();
-	BST2 bst2 = new BST2();
 	Heap heap = new Heap();
 	private int counter;
 
@@ -61,7 +60,7 @@ public class QueueA implements java.io.Serializable{
 	}
 	//this function adds an idea to the student nodes by accessing the BST after searching with SSN
 	public void addIdeaStudent(int searchKey){
-		bst2.searchRecord(searchKey);
+		bst.searchRecord(searchKey);
 		Scanner in = new Scanner(System.in);
 		//asks the user how many ideas he or she wants to add 
 		System.out.println("How many ideas would you like to add?");
@@ -71,23 +70,23 @@ public class QueueA implements java.io.Serializable{
 			System.out.println("Enter the social security number: ");
 			int SSN = in.nextInt();
 			System.out.println("Enter the idea description: ");
-			String description = in.nextLine();
+			Scanner inn = new Scanner(System.in);
+			String description = inn.nextLine();
 			System.out.println("Enter the idea rating: ");
 			int rating = in.nextInt();
 			counter++;
 			Idea idea = new Idea(counter, SSN, description, rating);
-
-			in.nextLine();
 			array[i] = idea;
 		//adds the idea into the queue of ideas on the student records (latest 10 ideas) 
-		enqueue(idea);
+			enqueue(idea);
 		//inserts the idea node into the heap (pool of ideas) so that it can be updated
-		heap.insert(idea);	
+			heap.insert(idea);	
 		}
 	}
 	public int avgRating() {
 	int rating = 0;
 	if (array[0] != null){
+		System.out.println("I like turtles");
 			for (int i=0; i<10; i++){
 				if (array[i] == null){
 					int avgRating = rating/i;
