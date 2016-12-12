@@ -6,6 +6,7 @@
 	out.writeObject(BST);
 	out.writeObject(QueueA);
 	out.writeObject(Heap);
+	out.writeObject(BST2)
 	out.close();
 	fileOut.close();
 	System.out.println("Serialized object successfully in output.txt");
@@ -26,6 +27,7 @@ try {
 	BST = (StudentBST) in.readObject();
 	QueueA = (IdeaQueue) in.readObject();
 	Heap = (IdeaHeap) in.readObject();
+	BST2 = (StudentBST2) in.readObject();  
 	in.close();
 	fileIn.close();
 	} 
@@ -35,5 +37,5 @@ try {
 	catch(ClassNotFoundException j) {
 	j.printStackTrace();
 	}
-
 //Note: for these^, BST, QueueA, etc are new objects we are assiging the stuff from the text file
+//Contact GitHub API Training Shop Blog About
