@@ -10,11 +10,11 @@ test each of the BST functions
 //SO, WHEN SEARCHING WITH SSN TO FIND A STUDENT, WE THEN ADD THE IDEA TO THE STUDENT'S NODE 
 //THIS PROGRAM IS FOR THE SSN BST!!!!
 import java.util.scanner;
-public class BST {
+public class BST2 {
 	//public QueueA QueueA.java
 	private Node t;
 //create an empty tree	
-	public BST() {
+	public BST2() {
 		t = null;
 	}
 //checks if tree is empty
@@ -58,7 +58,7 @@ public class BST {
 	
 	//searches for the desired node through the given key
 	//this search method uses the student as the key to get the student's login email
-	public Node searchEmail(int key) {
+	/*public Node searchEmail(int key) {
 //checks first if tree is empty, returning null
 		if (t == null) {
 			return null;
@@ -89,7 +89,7 @@ public class BST {
 			createStudentNode();
 		}
 			
-	}
+	}*/
 	//Edited by Andrew 
 	public void createStudentNode(){
 		Scanner in = new Scanner(System.in);
