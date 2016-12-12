@@ -3,12 +3,11 @@ import java.util.Scanner;
 import java.io.IOException;
 import java.lang.NumberFormatException;
 
-public class Menu /*implements*/{ //java.io.Serializable{
+public class MenuFinal implements java.io.Serializable {
 	public static void main(String[] args) {
 	BST bst = new BST();
 	QueueA queue = new QueueA();
 	
-		
 System.out.println("Hello, Welcome to our Idea Database!");
 		while(1=1){	
 		System.out.println("Would you like to");
@@ -60,7 +59,7 @@ System.out.println("Hello, Welcome to our Idea Database!");
 		System.out.println("What would you like to do? (Ex:'A'): "); // user prompt
 		input = in.next();
 		if (input.equals("A") || input.equals("a")) {	
-			bst.createStudentNode();
+			bst2.createStudentNode();
 			String input5 = "t";
 			while (!input5.equals("B") || !input5.equals("b")){
 					System.out.println("Would you like to enter an Idea? (Ex. A) ");
@@ -103,7 +102,7 @@ System.out.println("Hello, Welcome to our Idea Database!");
 					input7 = in.next();
 					int input3 = Integer.parseInt(input7);
 					if (input3 > 99999999 && input3 < 1000000000){
-						StudentNode u = bst.searchRecord(input3); 
+						StudentNode u = bst2.searchRecord(input3); 
 							if (u != null){
 							System.out.println("Student Found! Here is their information:");
 							System.out.println("Email: " + u.getEmail()); 
@@ -124,8 +123,8 @@ System.out.println("Hello, Welcome to our Idea Database!");
 						
 							try{
 								if (input11.equals("A") || input11.equals("a")){
-									StudentNode a = bst.searchRecord(input3);
-									bst.delete(a);
+									StudentNode a = bst2.searchRecord(input3);
+									bst2.delete(a);
 									System.out.println("Student Record has been deleted");
 								}
 								else if(input11.equals("B") || input11.equals("b")){
@@ -137,19 +136,19 @@ System.out.println("Hello, Welcome to our Idea Database!");
 							
 								try{
 									if (input12.equals("A") || input12.equals("a")){
-										StudentNode a = bst.searchRecord(input3);
+										StudentNode a = bst2.searchRecord(input3);
 										System.out.println("Enter new Last Name: ");
 										String input13 = in.next();
 										a.setLast(input13);
 									}
 									else if (input12.equals("B") || input12.equals("b")){
-										StudentNode a = bst.searchRecord(input3);
+										StudentNode a = bst2.searchRecord(input3);
 										System.out.println("Enter new Login Name: ");
 										String input14 = in.next();
 										a.setEmail(input14);
 									}
 									else if (input12.equals("C") || input12.equals("c")){
-										StudentNode a = bst.searchRecord(input3);
+										StudentNode a = bst2.searchRecord(input3);
 										System.out.println("Enter new Last Name: ");
 										String input13 = in.next();
 										a.setLast(input13);
