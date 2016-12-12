@@ -15,6 +15,7 @@ public class QueueA implements java.io.Serializable{
 	private int front;
 	private int end;
 	BST bst = new BST();
+	BST bst2 = new BST2();
 	Heap heap = new Heap();
 	private int counter;
 
@@ -60,7 +61,7 @@ public class QueueA implements java.io.Serializable{
 	}
 	//this function adds an idea to the student nodes by accessing the BST after searching with SSN
 	public void addIdeaStudent(int searchKey){
-		bst.searchRecord(searchKey);
+		bst2.searchRecord(searchKey);
 		Scanner in = new Scanner(System.in);
 		//asks the user how many ideas he or she wants to add 
 		System.out.println("How many ideas would you like to add?");
