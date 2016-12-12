@@ -8,25 +8,25 @@ the queue functions  */
 
 import java.util.Scanner;
 //creates the StackA (array) class 
-public class QueueA{ 
+public class QueueA implements java.io.Serializable{ 
 	//instance variables for the class 
 	private int n;
-	private Node [] array;
+	private Idea [] array;
 	private int front;
 	private int end;
 	BST bst = new BST();
 	Heap heap = new Heap();
 	private int counter;
 
-	//creates the QueueA method that defines the array of 100 nodes
+	//creates the QueueA method that defines the array of 10 nodes
 	public QueueA(){
 		n = 0;
 		front = 0;
-		array = new Node[10];
+		array = new Idea[10];
 		counter = 0;
 	}
 	//defines the front method 
-	public Node front(){
+	public Idea front(){
 		//conditional to check if the array is empty 
 		if (n == 0){
 			return null;
@@ -38,7 +38,7 @@ public class QueueA{
 	}
 	//creates the dequeue method 
 	//this returns and removes the first node of the queue
-	public Node dequeue(){
+	public Idea dequeue(){
 		int temp = front; 
 		front = (front+1)%10;
 		//decrement n 
@@ -47,7 +47,7 @@ public class QueueA{
 	}
 	//creates the enqueue method with node x as a parameter 
 	//this returns the queue with x added as the last element
-	public void enqueue(Node x){
+	public void enqueue(Idea x){
 		end = (front + n)%10;
 		array[end] = x;
 		end++;
@@ -60,7 +60,7 @@ public class QueueA{
 	}
 	//this function adds an idea to the student nodes by accessing the BST after searching with SSN
 	public void addIdeaStudent(int searchKey){
-		bst.BSTsearchRecord(searchKey);
+		bst.searchRecord(searchKey);
 		Scanner in = new Scanner(System.in);
 		//asks the user how many ideas he or she wants to add 
 		System.out.println("How many ideas would you like to add?");
@@ -70,17 +70,39 @@ public class QueueA{
 			System.out.println("Enter the social security number: ");
 			int SSN = in.nextInt();
 			System.out.println("Enter the idea description: ");
-			String description = in.next();
+			String description = in.nextLine();
 			System.out.println("Enter the idea rating: ");
 			int rating = in.nextInt();
 			counter++;
-			Node idea = new Node(SSN, description, rating, counter);
+			Idea idea = new Idea(counter, SSN, description, rating);
+
 			in.nextLine();
 			array[i] = idea;
 		//adds the idea into the queue of ideas on the student records (latest 10 ideas) 
 		enqueue(idea);
 		//inserts the idea node into the heap (pool of ideas) so that it can be updated
-		heap.HeapInsert(idea);	
+		heap.insert(idea);	
+		}
+	}
+	public int avgRating() {
+	int rating = 0;
+	if (array[0] != null){
+			for (int i=0; i<10; i++){
+				if (array[i] == null){
+					int avgRating = rating/i;
+					return avgRating;
+				}
+				else {
+					int y = array[i].getRating();
+					rating = y + rating;
+				}
+			}
+			int avgRating = rating/10;
+			return avgRating;
+		}
+		else {
+			System.out.println("This student currently has no ideas!");
+			return 0;
 		}
 	}
 	
@@ -90,12 +112,10 @@ public class QueueA{
         System.out.println(end);
         if (front <= end)
            for(int i = front; i < end; i++) 
-               System.out.println(array[i].getKey());
+               System.out.println(array[i].getSSN());
         else {
            for(int i = front; i < 10; i++) 
-               System.out.println(array[i].getKey());          
-           for(int i = 0; i < end; i++) 
-               System.out.println(array[i].getKey());
-        }          
+               System.out.println(array[i].getSSN());          
+           }
     }
 }
