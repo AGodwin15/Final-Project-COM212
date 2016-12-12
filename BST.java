@@ -94,18 +94,18 @@ public class BST implements java.io.Serializable{
 		String loginName = in.next();
 		System.out.println("Enter the SSN: ");
 		int socialSecurityNew = in.nextInt();
-	//	try {
+		try {
 			if (99999999 < socialSecurityNew && socialSecurityNew < 1000000000) {
 				socialSecurityNew = (socialSecurityNew%10000);
 				System.out.println("HELLO THERE");
 			}
 		}
-		/*catch(IndexOutOfBoundsException e){
+		catch(IndexOutOfBoundsException e){
 			System.out.println("Sorry but " + e + " is not a valid social security number!");
 			System.out.println("Please try again!");
 			System.out.println("Enter the SSN: ");
 			socialSecurityNew = in.nextInt();
-		}*/
+		}
 			
 		System.out.println("Enter student number: ");
 		int studentNumber = in.nextInt();
@@ -114,8 +114,7 @@ public class BST implements java.io.Serializable{
 		in.nextLine();
 		insert(student);
 	}	
-	
-	}	
+		
 	
 //checks if there is no root, inserting the new node as the root
 	public void insert(StudentNode p) {
