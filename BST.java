@@ -10,6 +10,8 @@ import java.util.Scanner;
 public class BST implements java.io.Serializable{
 	//public QueueA QueueA.java
 	private StudentNode t;
+	BST2 bst2 = new BST2();
+
 //create an empty tree	
 	public BST() {
 		t = null;
@@ -97,7 +99,6 @@ public class BST implements java.io.Serializable{
 		try {
 			if (99999999 < socialSecurityNew && socialSecurityNew < 1000000000) {
 				socialSecurityNew = (socialSecurityNew%10000);
-				System.out.println("HELLO THERE");
 			}
 		}
 		catch(IndexOutOfBoundsException e){
@@ -113,6 +114,7 @@ public class BST implements java.io.Serializable{
 		StudentNode student = new StudentNode(lastName, loginName, socialSecurityNew, studentNumber);
 		in.nextLine();
 		insert(student);
+
 	}	
 		
 	
@@ -282,12 +284,14 @@ public class BST implements java.io.Serializable{
 		System.out.print(tree.getAvgRating() + " ");		
 		
         if (tree.getLeft() != null){
+        	System.out.println();
 	        System.out.print(tree.getLeft().getStunum() + " ");
 			System.out.print(tree.getLeft().getSocial() + " ");
 			System.out.print(tree.getLeft().getLast() + " ");
 			System.out.print(tree.getLeft().getAvgRating() + " ");
 	    }	
         else if (tree.getRight() != null){
+        	System.out.println();
 			System.out.print(tree.getRight().getStunum() + " ");
 			System.out.print(tree.getRight().getSocial() + " ");
 			System.out.print(tree.getRight().getLast() + " ");
