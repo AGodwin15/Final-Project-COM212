@@ -274,24 +274,26 @@ public class BST2 implements java.io.Serializable{
     }
 //prints the new tree's keys based on positions
 	//Andrew edited 
-    private void printTree2(StudentNode tree) {
+      private void printTree2(StudentNode tree) {
 	if (tree != null) {
-		System.out.print(tree.getStunum() + " ");
-		System.out.print(tree.getSocial() + " ");
-		System.out.print(tree.getLast() + " ");
-		System.out.print(tree.getAvgRating() + " ");		
+		System.out.print("Student Number: " + tree.getStunum());
+		System.out.print("Social Security Number: " + tree.getSocial());
+		System.out.print("Last Name: " + tree.getLast());
+		System.out.print("Idea Average Rating" + tree.getAvgRating());		
 		
         if (tree.getLeft() != null){
-	        System.out.print(tree.getLeft().getStunum() + " ");
-			System.out.print(tree.getLeft().getSocial() + " ");
-			System.out.print(tree.getLeft().getLast() + " ");
-			System.out.print(tree.getLeft().getAvgRating() + " ");
+        	System.out.println();
+	        System.out.print("Student Number: " + tree.getLeft().getStunum());
+			System.out.print("Social Security Number: " +tree.getLeft().getSocial());
+			System.out.print("Last Name: " + tree.getLeft().getLast());
+			System.out.print("Idea Average Rating" + tree.getLeft().getAvgRating());
 	    }	
         else if (tree.getRight() != null){
-			System.out.print(tree.getRight().getStunum() + " ");
-			System.out.print(tree.getRight().getSocial() + " ");
-			System.out.print(tree.getRight().getLast() + " ");
-			System.out.print(tree.getRight().getAvgRating() + " ");	
+        	System.out.println();
+			System.out.print("Student Number: " + tree.getRight().getStunum());
+			System.out.print("Social Security Number: " + tree.getRight().getSocial());
+			System.out.print("Last Name: " + tree.getRight().getLast());
+			System.out.print("Idea Average Rating" + tree.getRight().getAvgRating());	
 	    }	
         else {
             System.out.println("There are no student records to show.");
