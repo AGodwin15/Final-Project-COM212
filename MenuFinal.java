@@ -42,7 +42,7 @@ System.out.println("Hello, Welcome to our Idea Database!");
 				continue
 			}
 // Note: for these^, BST, QueueA, etc are new objects we are assiging the stuff from the text fileout.close();
-		}}}
+		}
 
 	String input = "t";
 	while (!input.equals("E") || !input.equals("e")){	// while loop
