@@ -123,7 +123,7 @@ public class BST2 {
 //inserts the desired node into the tree by checking where it
 //should be in the tree based on the key and whats in the tree
 	private void insert2(Node t3, Node p) {
-		if (p.getKey() < t3.getKey()) {
+		if (p.getSocial() < t3.getSocial()) {
 			if (t3.getLeft() == null) {
 				t3.setLeft(p);
 			}
@@ -144,7 +144,7 @@ public class BST2 {
 	public void traverse() {
 		if (t != null) {
 			traverseR(t.getLeft());
-			System.out.print(t.getKey() + " ");
+			System.out.print(t.getSocial() + " ");
 			traverseR(t.getRight());
 	}
 }
@@ -152,7 +152,7 @@ public class BST2 {
 	private void traverseR(Node t4) {
 		if (t4!=null) {
 			traverseR(t4.getLeft());
-			System.out.print(t4.getKey() + " ");
+			System.out.print(t4.getSocial() + " ");
 			traverseR(t4.getRight());
 		}
 	}
@@ -242,7 +242,7 @@ public class BST2 {
 	public Node findParent(Node y) {
 		Node temp = t;
 		while (temp.getRight() != y && temp.getLeft() != y) {
-			if (temp.getKey() > y.getKey()) {
+			if (temp.getSocial() > y.getSocial()) {
 				temp = temp.getLeft();
 			}
 			else {
@@ -270,19 +270,19 @@ public class BST2 {
 	//Andrew edited 
     private void printTree2(Node tree) {
 	if (tree != null) {
-		System.out.print(tree.getKey() + " ");
+		System.out.print(tree.getStunum() + " ");
 		System.out.print(tree.getSocial() + " ");
 		System.out.print(tree.getLastName() + " ");
 		System.out.print(tree.getRating() + " ");		
 		
             if (tree.getLeft() != null){
-	        System.out.print(tree.getLeft().getKey() + " ");
+	        System.out.print(tree.getLeft().getStunum() + " ");
 		System.out.print(tree.getLeft().getSocial() + " ");
 		System.out.print(tree.getLeft().getLastName() + " ");
 		System.out.print(tree.getLeft().getRating() + " ");
 	    }	
             else if (tree.getRight() != null){
-		System.out.print(tree.getRight().getKey() + " ");
+		System.out.print(tree.getRight().getStunum() + " ");
 		System.out.print(tree.getRight().getSocial() + " ");
 		System.out.print(tree.getRight().getLastName() + " ");
 		System.out.print(tree.getRight().getRating() + " ");	
