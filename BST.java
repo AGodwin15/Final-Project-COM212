@@ -6,10 +6,10 @@ test each of the BST functions
 //NOTE FOR ANDREW: WE PROBABLY DONT NEED ALL OF THESE FUNCTIONS!!! MAKE SURE WE ONLY HAVE THE ONES WE NEED 
 //ALSO NOTE FOR ANDREW: CALL THE QUEUE FUNCTIONS IN THIS CLASS TO ADD A NEW IDEA 
 //SO, WHEN SEARCHING WITH SSN TO FIND A STUDENT, WE THEN ADD THE IDEA TO THE STUDENT'S NODE 
-import java.util.Scanner;
-public class BST implements java.io.Serializable{
+import java.util.scanner;
+public class BST {
 	//public QueueA QueueA.java
-	private StudentNode t;
+	private Node t;
 //create an empty tree	
 	public BST() {
 		t = null;
@@ -20,7 +20,7 @@ public class BST implements java.io.Serializable{
 	}
 //searches for the desired node through the given key
 	//this search method uses the SSN as the key to get the full student record 
-	public StudentNode searchRecord(int key) {
+	public Node searchRecord(int key) {
 //checks first if tree is empty, returning null
 		if (t == null) {
 			return null;
@@ -33,13 +33,17 @@ public class BST implements java.io.Serializable{
 	//Edited by Andrew Godwin 
 //search function given the tree and the key to return the student record
 	//this function uses the SSN to get the full student record 
-	private StudentNode searchRrecord(StudentNode t2, int key) {
+	private Node searchRrecord(Node t2, int key) {
 		if (t2 == null) {
 			return null;
 		}
 		else if (key == t2.getSocial()) {
 			//return student record;
-			return t2;
+			t2.getEmail();
+			t2.getSocial();
+			t2.getStunum();
+			t2.getLast();
+			t2.getavgRating();
 		}
 		else if (key < t2.getSocial()) {
 			return searchRrecord(t2.getLeft(), key); 
@@ -51,7 +55,7 @@ public class BST implements java.io.Serializable{
 	
 	//searches for the desired node through the given key
 	//this search method uses the student as the key to get the student's login email
-	public StudentNode searchEmail(int key) {
+	public Node searchEmail(int key) {
 //checks first if tree is empty, returning null
 		if (t == null) {
 			return null;
@@ -64,14 +68,13 @@ public class BST implements java.io.Serializable{
 	//Edited by Andrew Godwin 
 //search function given the tree and the key to return the student record
 	//this function uses the student number to get the student's email login name 
-	private StudentNode searchRemail(StudentNode t2, int key) {
+	private Node searchRemail(Node t2, int key) {
 		if (t2 == null) {
 			return null;
 		}
 		else if (key == t2.getStunum()) {
 			//return student email login 
-			System.out.println(t2.getEmail());
-			return t2;
+			t2.getEmail();
 		}
 		else if (key < t2.getStunum()) {
 			return searchRemail(t2.getLeft(), key); 
@@ -80,44 +83,32 @@ public class BST implements java.io.Serializable{
 			return searchRemail(t2.getRight(), key);
 		}
 		else {
-			System.out.println("Student email not found.");
-			return null;
+			createStudentNode();
 		}
 			
 	}
 	//Edited by Andrew 
 	public void createStudentNode(){
 		Scanner in = new Scanner(System.in);
+		//for (int i = 0; i<n; i++){
 		System.out.println("Enter last name: ");
 		String lastName = in.next();
 		System.out.println("Enter login name: ");
 		String loginName = in.next();
 		System.out.println("Enter the SSN: ");
-		int socialSecurityNew = in.nextInt();
-		try {
-			if (99999999 < socialSecurityNew && socialSecurityNew < 1000000000) {
-				socialSecurityNew = (socialSecurityNew%10000);
-				System.out.println("HELLO THERE");
-			}
-		}
-		catch(IndexOutOfBoundsException e){
-			System.out.println("Sorry but " + e + " is not a valid social security number!");
-			System.out.println("Please try again!");
-			System.out.println("Enter the SSN: ");
-			socialSecurityNew = in.nextInt();
-		}
-			
+		int SSN = in.nextInt();
+		SSN = (SSN%10000);
 		System.out.println("Enter student number: ");
 		int studentNumber = in.nextInt();
-		QueueA queue = new QueueA();
-		StudentNode student = new StudentNode(lastName, loginName, socialSecurityNew, studentNumber);
+		Node student = new Node(lastName, loginName, SSN, studentNumber);
 		in.nextLine();
+		array[i] = student;
 		insert(student);
 	}	
 		
 	
 //checks if there is no root, inserting the new node as the root
-	public void insert(StudentNode p) {
+	public void insert(Node p) {
 		if (t == null) {
 			t = p;
 		}
@@ -128,8 +119,8 @@ public class BST implements java.io.Serializable{
 	}
 //inserts the desired node into the tree by checking where it
 //should be in the tree based on the key and whats in the tree
-	private void insert2(StudentNode t3, StudentNode p) {
-		if (p.getStunum() < t3.getStunum()) {
+	private void insert2(Node t3, Node p) {
+		if (p.getKey() < t3.getKey()) {
 			if (t3.getLeft() == null) {
 				t3.setLeft(p);
 			}
@@ -150,27 +141,27 @@ public class BST implements java.io.Serializable{
 	public void traverse() {
 		if (t != null) {
 			traverseR(t.getLeft());
-			System.out.print(t.getStunum() + " ");
+			System.out.print(t.getKey() + " ");
 			traverseR(t.getRight());
 	}
 }
 //gets the left and right values of the node, and prints out the key
-	private void traverseR(StudentNode t4) {
+	private void traverseR(Node t4) {
 		if (t4!=null) {
 			traverseR(t4.getLeft());
-			System.out.print(t4.getStunum() + " ");
+			System.out.print(t4.getKey() + " ");
 			traverseR(t4.getRight());
 		}
 	}
 //delete function for deleting the desired node 
-	public void delete(StudentNode p) {
+	public void delete(Node p) {
 //case if root == desired delete location
 		if (p == t) {
 			if (t.getRight() == null && t.getLeft() == null) {
 				 t = null;
 			}
 			else if (t.getRight() != null && t.getLeft() != null) {
-				StudentNode g = successor(t);
+				Node g = successor(t);
 				g.setLeft(t.getLeft());
 				if (t.getRight() == g) {
 					g.setRight(null);
@@ -178,7 +169,7 @@ public class BST implements java.io.Serializable{
 				else {
 	
 					if (g.getRight() != null) {
-						StudentNode parent = findParent(g);
+						Node parent = findParent(g);
 						parent.setLeft(g.getRight());
 					}
 					g.setRight(t.getRight());
@@ -197,7 +188,7 @@ public class BST implements java.io.Serializable{
 		}
 //case if there is a single child
 		else if (p.getRight() == null || p.getLeft() == null) {
-			StudentNode parent = findParent(p);
+			Node parent = findParent(p);
 	
 				if (isLeft(parent, p)) {
 					parent.setLeft(p.getLeft());
@@ -211,7 +202,7 @@ public class BST implements java.io.Serializable{
 		}
 //case if there are no children
 		else if (p.getRight() == null && p.getLeft() == null) {
-			StudentNode parent = findParent(p);
+			Node parent = findParent(p);
 			if (isLeft(parent, p)) {
 				parent.setLeft(null);
 			}
@@ -221,8 +212,8 @@ public class BST implements java.io.Serializable{
 		}
 //case if there are two children
 		else if (p.getRight() != null && p.getLeft() != null) {
-			StudentNode parent = findParent(p);
-			StudentNode l = successor(p);
+			Node parent = findParent(p);
+			Node l = successor(p);
 			if (isLeft(parent, p)) {
 				parent.setLeft(l);
 			}
@@ -237,18 +228,18 @@ public class BST implements java.io.Serializable{
 		}
 	}
 //finds the successor of the given node 
-	public StudentNode successor(StudentNode d) {
-		StudentNode a = d.getRight();
+	public Node successor(Node d) {
+		Node a = d.getRight();
 		while (a.getLeft() != null) {
 			a = a.getLeft();
 		}
 		return a;
 		}	
 //finds the parent of the desired node
-	public StudentNode findParent(StudentNode y) {
-		StudentNode temp = t;
+	public Node findParent(Node y) {
+		Node temp = t;
 		while (temp.getRight() != y && temp.getLeft() != y) {
-			if (temp.getStunum() > y.getStunum()) {
+			if (temp.getKey() > y.getKey()) {
 				temp = temp.getLeft();
 			}
 			else {
@@ -258,7 +249,7 @@ public class BST implements java.io.Serializable{
 		return temp;
 	}
 //checks if node h is left of node g
-	public boolean isLeft(StudentNode g, StudentNode h) {
+	public boolean isLeft(Node g, Node h) {
 		if (g.getLeft() == h) {
 			return true;
 		}
@@ -274,28 +265,28 @@ public class BST implements java.io.Serializable{
     }
 //prints the new tree's keys based on positions
 	//Andrew edited 
-    private void printTree2(StudentNode tree) {
+    private void printTree2(Node tree) {
 	if (tree != null) {
-		System.out.print(tree.getStunum() + " ");
+		System.out.print(tree.getKey() + " ");
 		System.out.print(tree.getSocial() + " ");
-		System.out.print(tree.getLast() + " ");
-		System.out.print(tree.getAvgRating() + " ");		
+		System.out.print(tree.getLastName() + " ");
+		System.out.print(tree.getRating() + " ");		
 		
-        if (tree.getLeft() != null){
-	        System.out.print(tree.getLeft().getStunum() + " ");
-			System.out.print(tree.getLeft().getSocial() + " ");
-			System.out.print(tree.getLeft().getLast() + " ");
-			System.out.print(tree.getLeft().getAvgRating() + " ");
+            if (tree.getLeft() != null){
+	        System.out.print(tree.getLeft().getKey() + " ");
+		System.out.print(tree.getLeft().getSocial() + " ");
+		System.out.print(tree.getLeft().getLastName() + " ");
+		System.out.print(tree.getLeft().getRating() + " ");
 	    }	
-        else if (tree.getRight() != null){
-			System.out.print(tree.getRight().getStunum() + " ");
-			System.out.print(tree.getRight().getSocial() + " ");
-			System.out.print(tree.getRight().getLast() + " ");
-			System.out.print(tree.getRight().getAvgRating() + " ");	
+            else if (tree.getRight() != null){
+		System.out.print(tree.getRight().getKey() + " ");
+		System.out.print(tree.getRight().getSocial() + " ");
+		System.out.print(tree.getRight().getLastName() + " ");
+		System.out.print(tree.getRight().getRating() + " ");	
 	    }	
-        else {
-            System.out.println("There are no student records to show.");
+            else{
+                System.out.println("There are no student records to show.");
 	    }
 	}
     } 
-}
+} 
