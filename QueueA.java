@@ -15,7 +15,7 @@ public class QueueA implements java.io.Serializable{
 	private int front;
 	private int end;
 	BST bst = new BST();
-	BST bst2 = new BST2();
+	BST2 bst2 = new BST2();
 	Heap heap = new Heap();
 	private int counter;
 
