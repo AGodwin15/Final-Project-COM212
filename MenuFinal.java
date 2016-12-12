@@ -2,29 +2,33 @@
 import java.util.Scanner;
 import java.io.IOException;
 import java.lang.NumberFormatException;
+import java.io.*;
 
 public class MenuFinal implements java.io.Serializable {
 	public static void main(String[] args) {
 	BST bst = new BST();
+	BST2 bst2 = new BST2();
 	QueueA queue = new QueueA();
+	Heap heap = new Heap();
 	
 System.out.println("Hello, Welcome to our Idea Database!");
-		while(1=1){	
+	while(1==1){	
 		System.out.println("Would you like to");
 		System.out.println("(A) Start a new blank database");
 		System.out.println("(B) Add to a preexisting database");
+		Scanner in = new Scanner(System.in);
 		String dataInput = in.next();
 // De-serialize, put this at the beginning when you want to load something pre-saved in,
 // note: it might error out if the text file doesn't exsist/ was wiped from RAM
 			if (dataInput.equals("B") || dataInput.equals("b")){
 				try {
 						FileInputStream fileIn = new FileInputStream("output.txt");
-							ObjectInputStream in = new ObjectInputStream(fileIn);
-								BST = (StudentBST) in.readObject();
-									QueueA = (IdeaQueue) in.readObject();
-										Heap = (IdeaHeap) in.readObject();
-											BST2 = (StudentBST2) in.readObject();
-												in.close();
+							ObjectInputStream inn = new ObjectInputStream(fileIn);
+								bst = (BST) inn.readObject();
+									queue = (QueueA) inn.readObject();
+										heap = (Heap) inn.readObject();
+											bst2 = (BST2) inn.readObject();
+												inn.close();
 													fileIn.close();
 						} 
 						catch(IOException i) {
@@ -59,7 +63,9 @@ System.out.println("Hello, Welcome to our Idea Database!");
 		System.out.println("What would you like to do? (Ex:'A'): "); // user prompt
 		input = in.next();
 		if (input.equals("A") || input.equals("a")) {	
-			bst2.createStudentNode();
+			bst.createStudentNode();
+			
+
 			String input5 = "t";
 			while (!input5.equals("B") || !input5.equals("b")){
 					System.out.println("Would you like to enter an Idea? (Ex. A) ");
@@ -124,6 +130,7 @@ System.out.println("Hello, Welcome to our Idea Database!");
 							try{
 								if (input11.equals("A") || input11.equals("a")){
 									StudentNode a = bst2.searchRecord(input3);
+									bst.delete(a);
 									bst2.delete(a);
 									System.out.println("Student Record has been deleted");
 								}
@@ -231,10 +238,10 @@ System.out.println("Hello, Welcome to our Idea Database!");
 		try {
 			FileOutputStream fileOut = new FileOutputStream("output.txt");
 			ObjectOutputStream out = new ObjectOutputStream(fileOut);
-			out.writeObject(BST);
-			out.writeObject(QueueA);
-			out.writeObject(Heap);
-			out.writeObject(BST2);
+			out.writeObject(bst);
+			out.writeObject(queue);
+			out.writeObject(heap);
+			out.writeObject(bst2);
 			out.close();
 			fileOut.close();
 			System.out.println("Serialized object successfully in output.txt");
@@ -243,6 +250,7 @@ System.out.println("Hello, Welcome to our Idea Database!");
 			  i.printStackTrace();
 			}
 	}
+
 	System.exit(0);
 }
 
