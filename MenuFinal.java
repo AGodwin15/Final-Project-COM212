@@ -196,7 +196,7 @@ System.out.println("Hello, Welcome to our Idea Database!");
 				}
 				catch(NumberFormatException e){
 					System.out.println();
-					System.out.println(e + "is an invalid Student Number, please try again");
+					System.out.println("That is an invalid Student Number, please try again");
 				}
 			}
 			}
@@ -229,9 +229,10 @@ System.out.println("Hello, Welcome to our Idea Database!");
 			System.exit(0);
 		}	
 	}
+	
 		catch(Exception e) {
 			System.out.println("Input Error: " + e);
-			System.out.println("That was not a valid entry, please try again.");
+			System.out.println("That was not a valid entry, please try again.5");
 			System.out.println();
 	}
 
