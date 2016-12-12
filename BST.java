@@ -114,6 +114,7 @@ public class BST implements java.io.Serializable{
 		StudentNode student = new StudentNode(lastName, loginName, socialSecurityNew, studentNumber);
 		in.nextLine();
 		insert(student);
+		bst2.insert(student);
 
 	}	
 		
