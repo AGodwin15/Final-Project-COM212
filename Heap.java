@@ -4,20 +4,20 @@
 //an array of 120 nodes and implements the functions of a priority queue
 
 //creates the Heap class 
-public class Heap{
+public class Heap implements java.io.Serializable{
 	//instance variables for the class to create the array 
 	private int n;
 	//this allows us to create the array
-	private Node [] array;
+	private Idea [] array;
 	
 	//creates the Heap method to create the array with a counter as n for number of elements
 	public Heap(){
 		int n = 0;
-		array = new Node[120];
+		array = new Idea[120];
 	}
 	
 	//creates the findMin method that returns the root of the tree/first node of the array
-	public Node findMin(){
+	public Idea findMin(){
 		return array[0];
 	}
 	
@@ -27,11 +27,11 @@ public class Heap{
 	}
 	
 	//creates the insert method that takes in Node x as a parameter
-	public Node insert(Node x){
+	public Idea insert(Idea x){
 		array[n] = x;
 		int temp = n;
 		//while loop that uses the relationship between the children and parent nodes 
-		while(temp != 0 && array[temp].getKey() < array[(temp-1)/2].getKey()){
+		while(temp != 0 && array[temp].getIdeaNum() < array[(temp-1)/2].getIdeaNum()){
 			//if the child is less than the parent, swap the nodes 
 			swap(temp, (temp-1)/2);
 			temp = (temp-1)/2;
@@ -42,7 +42,7 @@ public class Heap{
 	
 	//creates the swap method that takes in two nodes as switches their positions in the array or tree
 	public void swap(int x, int y){
-		Node tem = array[x];
+		Idea tem = array[x];
 		array[x] = array[y];
 		array[y] = tem;
 	}
@@ -60,7 +60,7 @@ public class Heap{
 	
 	//creates the deleteMin method that will delete the first node in the array
 	//this will delete the root of the tree
-	public Node deleteMin() {
+/*	public idea deleteMin() {
 		//decrement n 
 		n--;
 		int min = 0;
@@ -84,17 +84,15 @@ public class Heap{
 		//return the array
 		return array[min];
 	}
-	
+	*/
 	//creates the printTree method that will print out the array in order 
 	public void printTree() {
 		System.out.println(n);
 		for (int i = n-1; i >= 0; i--){
-			System.out.println(array[i].getKey());
+			System.out.println(array[i].getIdeaNum());
 		}
 	}
 }
-			
-			
 			
 			
 			
