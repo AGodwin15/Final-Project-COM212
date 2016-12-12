@@ -77,8 +77,13 @@ public class QueueA implements java.io.Serializable{
 			System.out.println("Enter the idea description: ");
 			Scanner inn = new Scanner(System.in);
 			String description = inn.nextLine();
-			System.out.println("Enter the idea rating: ");
-			int rating = in.nextInt();
+			while (1==1){
+				System.out.println("Enter the idea rating (0-100): ");
+				int rating = in.nextInt();
+				if (rating > 100){
+					System.out.println("That was an invalid rating, please try again.");
+					continue;}
+			}
 			counter++;
 			Idea idea = new Idea(counter, SSN, description, rating);
 			array[i] = idea;
