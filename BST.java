@@ -11,6 +11,7 @@ import java.util.scanner;
 public class BST {
 	//public QueueA QueueA.java
 	private Node t;
+	BST2 bst2 = new BST2();
 //create an empty tree	
 	public BST() {
 		t = null;
@@ -84,7 +85,7 @@ public class BST {
 			return searchRemail(t2.getRight(), key);
 		}
 		else {
-			createStudentNode();
+			bst2.createStudentNode();
 		}
 			
 	}
@@ -110,6 +111,7 @@ public class BST {
 	*/
 //checks if there is no root, inserting the new node as the root
 	public void insert(Node p) {
+		bst2.insert(Node p);
 		if (t == null) {
 			t = p;
 		}
@@ -156,6 +158,7 @@ public class BST {
 	}
 //delete function for deleting the desired node 
 	public void delete(Node p) {
+		bst2.delete(Node p);
 //case if root == desired delete location
 		if (p == t) {
 			if (t.getRight() == null && t.getLeft() == null) {
