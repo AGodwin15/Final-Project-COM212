@@ -198,7 +198,12 @@ System.out.println("Hello, Welcome to our Idea Database!");
 		}
 			
 		else if (input.equals("C") || input.equals("c")) {
+			if (bst.isEmpty()) {
+				System.out.println("There are no student records on file.")
+			}
+			else {
 			bst.printTree();
+			}
 		}	
 		else if (input.equals("D") || input.equals("d")) {
 			try {
