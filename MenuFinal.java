@@ -39,7 +39,7 @@ System.out.println("Hello, Welcome to our Idea Database!");
 				break;
 			}
 			else{
-				continue
+				continue;
 			}
 // Note: for these^, BST, QueueA, etc are new objects we are assiging the stuff from the text fileout.close();
 		}
