@@ -4,24 +4,27 @@ Done by Nate Brown
 This is the student record structure
 */
 
-public class Student {
+public class StudentNode implements java.io.Serializable{
 //these are the instance variables for the student record
 	//queue of ideas in student Node
-	QueueA queue = new QueueA();
+	
 	//the following are instance variables in the student Node
 	private String lastName;
 	private String loginName;
-	private int SSN;
+	private int socialSecurity;
 	private int studentNumber;
+	private StudentNode left;
+	private StudentNode right;
+	private QueueA queue;
 
 
 //establishing the variables names that are going to be called upon in future programs
-	public Student(String Lname, String Ename, int SSN0, int num, QueueA ideaQueue) {
+	public StudentNode(String Lname, String Ename, int socialSecurityNew, int num) {
 		lastName = Lname;
 		loginName = Ename;
-		SSN = SSN0;
+		socialSecurity = socialSecurityNew;
 		studentNumber = num;
-		queue = ideaQueue;
+		queue = new QueueA();
 	}
 //sets the variable ect...
 	public void setLast(String Lname) {
@@ -38,11 +41,11 @@ public class Student {
 		return loginName;
 	}
 	//edited by Andrew Godwin 
-	public void setSocial(int SSN) {
-		SSN = SSN0%10000;
+	public void setSocial(int socialSecurityNew) {
+		socialSecurity = (socialSecurityNew % 10000);
 	}
 	public int getSocial() {
-		return SSN;
+		return socialSecurity;
 	}
 	public void setStunum(int num) {
 		studentNumber = num;
@@ -50,11 +53,28 @@ public class Student {
 	public int getStunum() {
 		return studentNumber;
 	}
-	//Nate* Changed getStunum() to getKey() for the purpose of organizing the BST in terms of the student number
-	public void setKey(int num) {
-		studentNumber = num;
+	public void setLeft(StudentNode l){
+		left = l;
 	}
-	public int getKey() {
-		return studentNumber;
+//gets the left node
+	public StudentNode getLeft() {
+		return left;
+	}
+//sets the right node
+	public void setRight(StudentNode r) {
+		right = r;
+}
+//gets the right node
+	public StudentNode getRight() {
+		return right;
+	}
+	public int getAvgRating() {
+		int rating = queue.avgRating();
+		return rating;
+
 	}
 }
+
+
+
+
