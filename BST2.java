@@ -86,26 +86,24 @@ public class BST2 implements java.io.Serializable{
 		}
 			
 	}
-	//Edited by Andrew 
+	//Edited by Andrew/Matt
 	public void createStudentNode(){
 		Scanner in = new Scanner(System.in);
 		System.out.println("Enter last name: ");
 		String lastName = in.next();
 		System.out.println("Enter login name: ");
 		String loginName = in.next();
-		System.out.println("Enter the SSN: ");
+		while (1==1){
+		System.out.println("Enter 9-Digit SSN: ");
 		int socialSecurityNew = in.nextInt();
-		try {
 			if (99999999 < socialSecurityNew && socialSecurityNew < 1000000000) {
 				socialSecurityNew = (socialSecurityNew%10000);
-				System.out.println("HELLO THERE");
+				break;
 			}
+			else{
+				System.out.println("That is an invalid SSN, please try again");
+				continue;
 		}
-		catch(IndexOutOfBoundsException e){
-			System.out.println("Sorry but " + e + " is not a valid social security number!");
-			System.out.println("Please try again!");
-			System.out.println("Enter the SSN: ");
-			socialSecurityNew = in.nextInt();
 		}
 			
 		System.out.println("Enter student number: ");
