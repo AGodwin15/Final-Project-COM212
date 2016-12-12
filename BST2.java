@@ -1,5 +1,3 @@
-# Final-Project-COM212
-Final Project Java
 /*Nate Brown
 October 31
 Program 4: this program is a binary search tree using linked nodes that should 
@@ -8,12 +6,11 @@ test each of the BST functions
 //NOTE FOR ANDREW: WE PROBABLY DONT NEED ALL OF THESE FUNCTIONS!!! MAKE SURE WE ONLY HAVE THE ONES WE NEED 
 //ALSO NOTE FOR ANDREW: CALL THE QUEUE FUNCTIONS IN THIS CLASS TO ADD A NEW IDEA 
 //SO, WHEN SEARCHING WITH SSN TO FIND A STUDENT, WE THEN ADD THE IDEA TO THE STUDENT'S NODE 
-//THIS PROGRAM IS FOR THE SSN BST!!!!
-import java.util.scanner;
-public class BST2 {
+import java.util.Scanner;
+public class BST2 implements java.io.Serializable{
 	//public QueueA QueueA.java
-	private Node t;
-	BST bst = new BST();
+	private StudentNode t;
+	//BST2 bst2 = new BST2();
 //create an empty tree	
 	public BST2() {
 		t = null;
@@ -24,7 +21,7 @@ public class BST2 {
 	}
 //searches for the desired node through the given key
 	//this search method uses the SSN as the key to get the full student record 
-	public Node searchRecord(int key) {
+	public StudentNode searchRecord(int key) {
 //checks first if tree is empty, returning null
 		if (t == null) {
 			return null;
@@ -37,17 +34,13 @@ public class BST2 {
 	//Edited by Andrew Godwin 
 //search function given the tree and the key to return the student record
 	//this function uses the SSN to get the full student record 
-	private Node searchRrecord(Node t2, int key) {
+	private StudentNode searchRrecord(StudentNode t2, int key) {
 		if (t2 == null) {
 			return null;
 		}
 		else if (key == t2.getSocial()) {
 			//return student record;
-			t2.getEmail();
-			t2.getSocial();
-			t2.getStunum();
-			t2.getLast();
-			t2.getavgRating();
+			return t2;
 		}
 		else if (key < t2.getSocial()) {
 			return searchRrecord(t2.getLeft(), key); 
@@ -59,7 +52,7 @@ public class BST2 {
 	
 	//searches for the desired node through the given key
 	//this search method uses the student as the key to get the student's login email
-	/*public Node searchEmail(int key) {
+	public StudentNode searchEmail(int key) {
 //checks first if tree is empty, returning null
 		if (t == null) {
 			return null;
@@ -72,13 +65,14 @@ public class BST2 {
 	//Edited by Andrew Godwin 
 //search function given the tree and the key to return the student record
 	//this function uses the student number to get the student's email login name 
-	private Node searchRemail(Node t2, int key) {
+	private StudentNode searchRemail(StudentNode t2, int key) {
 		if (t2 == null) {
 			return null;
 		}
 		else if (key == t2.getStunum()) {
 			//return student email login 
-			t2.getEmail();
+			System.out.println(t2.getEmail());
+			return t2;
 		}
 		else if (key < t2.getStunum()) {
 			return searchRemail(t2.getLeft(), key); 
@@ -87,34 +81,45 @@ public class BST2 {
 			return searchRemail(t2.getRight(), key);
 		}
 		else {
-			createStudentNode();
+			System.out.println("Student email not found.");
+			return null;
 		}
 			
-	}*/
+	}
 	//Edited by Andrew 
 	public void createStudentNode(){
 		Scanner in = new Scanner(System.in);
-		//for (int i = 0; i<n; i++){
 		System.out.println("Enter last name: ");
 		String lastName = in.next();
 		System.out.println("Enter login name: ");
 		String loginName = in.next();
 		System.out.println("Enter the SSN: ");
-		int SSN = in.nextInt();
-		SSN = (SSN%10000);
+		int socialSecurityNew = in.nextInt();
+		try {
+			if (99999999 < socialSecurityNew && socialSecurityNew < 1000000000) {
+				socialSecurityNew = (socialSecurityNew%10000);
+				System.out.println("HELLO THERE");
+			}
+		}
+		catch(IndexOutOfBoundsException e){
+			System.out.println("Sorry but " + e + " is not a valid social security number!");
+			System.out.println("Please try again!");
+			System.out.println("Enter the SSN: ");
+			socialSecurityNew = in.nextInt();
+		}
+			
 		System.out.println("Enter student number: ");
 		int studentNumber = in.nextInt();
-		Node student = new Node(lastName, loginName, SSN, studentNumber);
+		QueueA queue = new QueueA();
+		StudentNode student = new StudentNode(lastName, loginName, socialSecurityNew, studentNumber);
 		in.nextLine();
-		array[i] = student;
 		insert(student);
-		bst.insert(student);
+		//bst.insert(student);
 	}	
 		
 	
 //checks if there is no root, inserting the new node as the root
-	public void insert(Node p) {
-		bst.insert(Node p);
+	public void insert(StudentNode p) {
 		if (t == null) {
 			t = p;
 		}
@@ -125,8 +130,8 @@ public class BST2 {
 	}
 //inserts the desired node into the tree by checking where it
 //should be in the tree based on the key and whats in the tree
-	private void insert2(Node t3, Node p) {
-		if (p.getSocial() < t3.getSocial()) {
+	private void insert2(StudentNode t3, StudentNode p) {
+		if (p.getStunum() < t3.getStunum()) {
 			if (t3.getLeft() == null) {
 				t3.setLeft(p);
 			}
@@ -147,28 +152,27 @@ public class BST2 {
 	public void traverse() {
 		if (t != null) {
 			traverseR(t.getLeft());
-			System.out.print(t.getSocial() + " ");
+			System.out.print(t.getStunum() + " ");
 			traverseR(t.getRight());
 	}
 }
 //gets the left and right values of the node, and prints out the key
-	private void traverseR(Node t4) {
+	private void traverseR(StudentNode t4) {
 		if (t4!=null) {
 			traverseR(t4.getLeft());
-			System.out.print(t4.getSocial() + " ");
+			System.out.print(t4.getStunum() + " ");
 			traverseR(t4.getRight());
 		}
 	}
 //delete function for deleting the desired node 
-	public void delete(Node p) {
-		bst.delete(Node p);
+	public void delete(StudentNode p) {
 //case if root == desired delete location
 		if (p == t) {
 			if (t.getRight() == null && t.getLeft() == null) {
 				 t = null;
 			}
 			else if (t.getRight() != null && t.getLeft() != null) {
-				Node g = successor(t);
+				StudentNode g = successor(t);
 				g.setLeft(t.getLeft());
 				if (t.getRight() == g) {
 					g.setRight(null);
@@ -176,7 +180,7 @@ public class BST2 {
 				else {
 	
 					if (g.getRight() != null) {
-						Node parent = findParent(g);
+						StudentNode parent = findParent(g);
 						parent.setLeft(g.getRight());
 					}
 					g.setRight(t.getRight());
@@ -195,7 +199,7 @@ public class BST2 {
 		}
 //case if there is a single child
 		else if (p.getRight() == null || p.getLeft() == null) {
-			Node parent = findParent(p);
+			StudentNode parent = findParent(p);
 	
 				if (isLeft(parent, p)) {
 					parent.setLeft(p.getLeft());
@@ -209,7 +213,7 @@ public class BST2 {
 		}
 //case if there are no children
 		else if (p.getRight() == null && p.getLeft() == null) {
-			Node parent = findParent(p);
+			StudentNode parent = findParent(p);
 			if (isLeft(parent, p)) {
 				parent.setLeft(null);
 			}
@@ -219,8 +223,8 @@ public class BST2 {
 		}
 //case if there are two children
 		else if (p.getRight() != null && p.getLeft() != null) {
-			Node parent = findParent(p);
-			Node l = successor(p);
+			StudentNode parent = findParent(p);
+			StudentNode l = successor(p);
 			if (isLeft(parent, p)) {
 				parent.setLeft(l);
 			}
@@ -235,18 +239,18 @@ public class BST2 {
 		}
 	}
 //finds the successor of the given node 
-	public Node successor(Node d) {
-		Node a = d.getRight();
+	public StudentNode successor(StudentNode d) {
+		StudentNode a = d.getRight();
 		while (a.getLeft() != null) {
 			a = a.getLeft();
 		}
 		return a;
 		}	
 //finds the parent of the desired node
-	public Node findParent(Node y) {
-		Node temp = t;
+	public StudentNode findParent(StudentNode y) {
+		StudentNode temp = t;
 		while (temp.getRight() != y && temp.getLeft() != y) {
-			if (temp.getSocial() > y.getSocial()) {
+			if (temp.getStunum() > y.getStunum()) {
 				temp = temp.getLeft();
 			}
 			else {
@@ -256,7 +260,7 @@ public class BST2 {
 		return temp;
 	}
 //checks if node h is left of node g
-	public boolean isLeft(Node g, Node h) {
+	public boolean isLeft(StudentNode g, StudentNode h) {
 		if (g.getLeft() == h) {
 			return true;
 		}
@@ -272,27 +276,27 @@ public class BST2 {
     }
 //prints the new tree's keys based on positions
 	//Andrew edited 
-    private void printTree2(Node tree) {
+    private void printTree2(StudentNode tree) {
 	if (tree != null) {
 		System.out.print(tree.getStunum() + " ");
 		System.out.print(tree.getSocial() + " ");
-		System.out.print(tree.getLastName() + " ");
-		System.out.print(tree.getRating() + " ");		
+		System.out.print(tree.getLast() + " ");
+		System.out.print(tree.getAvgRating() + " ");		
 		
-            if (tree.getLeft() != null){
+        if (tree.getLeft() != null){
 	        System.out.print(tree.getLeft().getStunum() + " ");
-		System.out.print(tree.getLeft().getSocial() + " ");
-		System.out.print(tree.getLeft().getLastName() + " ");
-		System.out.print(tree.getLeft().getRating() + " ");
+			System.out.print(tree.getLeft().getSocial() + " ");
+			System.out.print(tree.getLeft().getLast() + " ");
+			System.out.print(tree.getLeft().getAvgRating() + " ");
 	    }	
-            else if (tree.getRight() != null){
-		System.out.print(tree.getRight().getStunum() + " ");
-		System.out.print(tree.getRight().getSocial() + " ");
-		System.out.print(tree.getRight().getLastName() + " ");
-		System.out.print(tree.getRight().getRating() + " ");	
+        else if (tree.getRight() != null){
+			System.out.print(tree.getRight().getStunum() + " ");
+			System.out.print(tree.getRight().getSocial() + " ");
+			System.out.print(tree.getRight().getLast() + " ");
+			System.out.print(tree.getRight().getAvgRating() + " ");	
 	    }	
-            else{
-                System.out.println("There are no student records to show.");
+        else {
+            System.out.println("There are no student records to show.");
 	    }
 	}
     } 
