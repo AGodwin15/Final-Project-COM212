@@ -69,7 +69,11 @@ public class QueueA implements java.io.Serializable{
 		for (int i = 0; i<input; i++){
 			System.out.println("Enter the social security number: ");
 			int SSN = in.nextInt();
-
+			if (SSN < 100000000 || SSN > 999999999){
+				System.out.println("That was an invalid SSN, please try again.");
+				continue;}
+			else{
+				SSN = SSN}
 			System.out.println("Enter the idea description: ");
 			Scanner inn = new Scanner(System.in);
 			String description = inn.nextLine();
