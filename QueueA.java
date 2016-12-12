@@ -69,6 +69,7 @@ public class QueueA implements java.io.Serializable{
 		for (int i = 0; i<input; i++){
 			System.out.println("Enter the social security number: ");
 			int SSN = in.nextInt();
+
 			System.out.println("Enter the idea description: ");
 			Scanner inn = new Scanner(System.in);
 			String description = inn.nextLine();
