@@ -50,8 +50,7 @@ System.out.println("Hello, Welcome to our Idea Database!");
 		}
 
 	String input = "t";
-	while (!input.equals("E") || !input.equals("e")){	// while loop
-		try {		
+	while (!input.equals("E") || !input.equals("e")){	// while loop	
 		Scanner in = new Scanner(System.in);
 		System.out.println("Choose from one of the following options to proceed:");
 		System.out.println();
@@ -228,12 +227,9 @@ System.out.println("Hello, Welcome to our Idea Database!");
 			System.out.println("Thanks for using our program, have a lovely day");
 			System.exit(0);
 		}	
-	}
-	
-		catch(Exception e) {
-			System.out.println("Input Error: " + e);
-			System.out.println("That was not a valid entry, please try again.5");
-			System.out.println();
+		else{
+			continue;
+		}
 	}
 
 		//Serialize, put this right before quitting the program
