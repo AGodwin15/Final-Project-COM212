@@ -10,21 +10,19 @@ import java.util.Scanner;
 //creates the StackA (array) class 
 public class QueueA implements java.io.Serializable{ 
 	//instance variables for the class 
-	private int n;
-	private Idea [] array;
-	private int front;
-	private int end;
+	private int n =0;
+	private Idea[] array = new Idea[10];
+	private int front =0;
+	private int end = 0;
 	BST bst = new BST();
 	Heap heap = new Heap();
-	private int counter;
+	private int counter =0;
 
 	//creates the QueueA method that defines the array of 10 nodes
-	public QueueA(){
-		n = 0;
-		front = 0;
+	/*public QueueA(){
 		array = new Idea[10];
-		counter = 0;
-	}
+
+	}*/
 	//defines the front method 
 	public Idea front(){
 		//conditional to check if the array is empty 
@@ -48,9 +46,8 @@ public class QueueA implements java.io.Serializable{
 	//creates the enqueue method with node x as a parameter 
 	//this returns the queue with x added as the last element
 	public void enqueue(Idea x){
-		end = (front + n)%10;
 		array[end] = x;
-		end++;
+		end = (end+1)%10;
 		n++;
 	}
 	//creates the isEmpty method 
@@ -59,73 +56,96 @@ public class QueueA implements java.io.Serializable{
 		return n == 0;
 	}
 	//this function adds an idea to the student nodes by accessing the BST after searching with SSN
-	public void addIdeaStudent(int searchKey){
-		bst.searchRecord(searchKey);
+	public Idea addIdeaStudent(int social){
 		Scanner in = new Scanner(System.in);
 		//asks the user how many ideas he or she wants to add 
-		System.out.println("How many ideas would you like to add?");
-		String userInput = in.next();
-		int input = Integer.parseInt(userInput);
-		for (int i = 0; i<input; i++){
-			System.out.println("Enter the social security number: ");
+	//	System.out.println("How many ideas would you like to add?");
+	//	String userInput = in.next();
+	//	int input = Integer.parseInt(userInput);
+		
+	//	for (int i = 0; i<input; i++){
+			/*System.out.println("Enter the social security number: ");
 			int SSN = in.nextInt();
-			if (SSN < 100000000 || SSN > 999999999){
+			while (true){
+
+				if (SSN < 100000000 || SSN > 999999999){
 				System.out.println("That was an invalid SSN, please try again.");
-				continue;}
+				continue;
+			}
 			else{
-				SSN = SSN}
+				SSN = SSN;
+				break;
+			}*/
+			//}
 			System.out.println("Enter the idea description: ");
 			Scanner inn = new Scanner(System.in);
 			String description = inn.nextLine();
+			int rating = 0;
 			while (1==1){
 				System.out.println("Enter the idea rating (0-100): ");
-				int rating = in.nextInt();
+				rating = in.nextInt();
 				if (rating > 100){
 					System.out.println("That was an invalid rating, please try again.");
-					continue;}
+					continue;
+				}
+				else{
+					break;
+				}
 			}
 			counter++;
-			Idea idea = new Idea(counter, SSN, description, rating);
-			array[i] = idea;
-		//adds the idea into the queue of ideas on the student records (latest 10 ideas) 
-			enqueue(idea);
+			Idea idea = new Idea(counter, social, description, rating);
+			//array[i] = idea;
+		//adds the idea into the queue of ideas on the student records (latest 10 ideas)
 		//inserts the idea node into the heap (pool of ideas) so that it can be updated
-			heap.insert(idea);	
+			System.out.println(heap.insert(idea));
+			return idea;
 		}
-	}
+
+	//}
+
 	public int avgRating() {
-	int rating = 0;
-	if (array[0] != null){
-		System.out.println("I like turtles");
-			for (int i=0; i<10; i++){
-				if (array[i] == null){
-					int avgRating = rating/i;
-					return avgRating;
+		int rating = 0;
+		if (n>0){
+
+				for (int i=0; i<10; i++){
+					if (array[i] == null){
+						int avgRating = rating/i;
+						return avgRating;
+					}
+					else {
+						int y = array[i].getRating();
+						rating = y + rating;
+					}
 				}
-				else {
-					int y = array[i].getRating();
-					rating = y + rating;
-				}
+				int avgRating = rating/10;
+				return avgRating;
+		    }
+			else {
+				System.out.println("This student currently has no ideas!");
+				return 0;
 			}
-			int avgRating = rating/10;
-			return avgRating;
-		}
-		else {
-			System.out.println("This student currently has no ideas!");
-			return 0;
-		}
+	}
+	public void setIdeaQueue(int social){
+		enqueue(addIdeaStudent(social));
+
+	}
+	public void getIdeaQueue(){
+		printQueue();
+		//return 1;
 	}
 	
 	// printQueue method for QueueA
     public void printQueue() {
-        System.out.println(front);
-        System.out.println(end);
         if (front <= end)
            for(int i = front; i < end; i++) 
-               System.out.println(array[i].getSSN());
+               System.out.println(array[i].getDescript());
         else {
            for(int i = front; i < 10; i++) 
-               System.out.println(array[i].getSSN());          
+               System.out.println(array[i].getDescript());          
            }
     }
 }
+
+
+
+
