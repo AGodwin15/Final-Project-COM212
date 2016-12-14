@@ -18,6 +18,10 @@ public class Heap implements java.io.Serializable{
 	
 	//creates the findMin method that returns the root of the tree/first node of the array
 	public Idea findMin(){
+		Idea x;
+		x = array[0];
+		System.out.println(x);
+
 		return array[0];
 	}
 	
@@ -31,12 +35,14 @@ public class Heap implements java.io.Serializable{
 		array[n] = x;
 		int temp = n;
 		//while loop that uses the relationship between the children and parent nodes 
-		while(temp != 0 && array[temp].getIdeaNum() < array[(temp-1)/2].getIdeaNum()){
+		while(temp != 0 && array[temp].getRating() < array[(temp-1)/2].getRating()){
 			//if the child is less than the parent, swap the nodes 
 			swap(temp, (temp-1)/2);
 			temp = (temp-1)/2;
 		}
 		n++;
+		System.out.println(array[temp]);
+		System.out.println(array[0]);
 		return array[temp];
 	}
 	
@@ -60,7 +66,7 @@ public class Heap implements java.io.Serializable{
 	
 	//creates the deleteMin method that will delete the first node in the array
 	//this will delete the root of the tree
-/*	public idea deleteMin() {
+	public Idea deleteMin() {
 		//decrement n 
 		n--;
 		int min = 0;
@@ -69,22 +75,22 @@ public class Heap implements java.io.Serializable{
 		
 		//if the root key is less than one of the children, then we need to check which child is less than
 		//the other and then swap the root with the lesser child 
-		while (array[min].getKey() < getRightChild(min) || array[min].getKey() < getLeftChild(min)){
+		while (array[min].getRating() < getRightChild(min) || array[min].getRating() < getLeftChild(min)){
 			if (getRightChild(min) > getLeftChild(min)){
 				//swaps the min and the left child 
-				swap(array[min].getKey(), getLeftChild(min));
+				swap(array[min].getRating(), getLeftChild(min));
 				min = getLeftChild(min);
 			}
 			//swaps the min and the right child 
 			else{
-				swap(array[min].getKey(), getRightChild(min));
+				swap(array[min].getRating(), getRightChild(min));
 				min = getRightChild(min);
 			}
 		}
 		//return the array
 		return array[min];
 	}
-	*/
+	
 	//creates the printTree method that will print out the array in order 
 	public void printTree() {
 		System.out.println(n);
