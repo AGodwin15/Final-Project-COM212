@@ -47,8 +47,8 @@ public class Idea implements java.io.Serializable{
 		return ideaRating;
 	}
 	
+	
 }
-
 
 
 
