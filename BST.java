@@ -452,10 +452,8 @@ public void deleteSSN(StudentNode p) {
 		System.out.println();	
 		System.out.println("Ideas: ");
 		System.out.println();
-		System.out.println(tree.getQueue().getIdeaQueue());
-		
+		tree.getQueue().getIdeaQueue();
 
-		
         if (tree.getLeft() != null){
         	System.out.println();
 	        System.out.print("Student Number: " + tree.getLeft().getStunum());
@@ -484,4 +482,3 @@ public void deleteSSN(StudentNode p) {
 	}
     } 
 }
-
