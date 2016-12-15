@@ -15,7 +15,7 @@ public class QueueA implements java.io.Serializable{
 	private int front =0;
 	private int end = 0;
 	BST bst = new BST();
-	Heap heap = new Heap();
+	//Heap heap = new Heap();
 	private int counter =0;
 
 	//creates the QueueA method that defines the array of 10 nodes
@@ -45,10 +45,11 @@ public class QueueA implements java.io.Serializable{
 	}
 	//creates the enqueue method with node x as a parameter 
 	//this returns the queue with x added as the last element
-	public void enqueue(Idea x){
+	public Idea enqueue(Idea x){
 		array[end] = x;
 		end = (end+1)%10;
 		n++;
+		return x;
 	}
 	//creates the isEmpty method 
 	public boolean isEmpty(){
@@ -97,7 +98,7 @@ public class QueueA implements java.io.Serializable{
 			//array[i] = idea;
 		//adds the idea into the queue of ideas on the student records (latest 10 ideas)
 		//inserts the idea node into the heap (pool of ideas) so that it can be updated
-			System.out.println(heap.insert(idea));
+			//System.out.println(heap.insert(idea));
 			return idea;
 		}
 
@@ -125,9 +126,8 @@ public class QueueA implements java.io.Serializable{
 				return 0;
 			}
 	}
-	public void setIdeaQueue(int social){
-		enqueue(addIdeaStudent(social));
-
+	public Idea setIdeaQueue(int social){
+		return enqueue(addIdeaStudent(social));
 	}
 	public void getIdeaQueue(){
 		printQueue();
@@ -145,6 +145,11 @@ public class QueueA implements java.io.Serializable{
            }
     }
 }
+
+
+
+
+
 
 
 
