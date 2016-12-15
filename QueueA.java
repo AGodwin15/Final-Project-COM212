@@ -90,6 +90,8 @@ public class QueueA implements java.io.Serializable{
 					continue;
 				}
 				else{
+					System.out.println("Idea added!");
+					System.out.println();
 					break;
 				}
 			}
@@ -145,6 +147,8 @@ public class QueueA implements java.io.Serializable{
            }
     }
 }
+
+
 
 
 
