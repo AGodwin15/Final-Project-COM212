@@ -275,7 +275,8 @@ System.out.println("Hello, Welcome to our Idea Database!");
 				if (input10 > 99999999 && input10 < 1000000000){
 					StudentNode x = bst.searchRecordSSN(input10);
 					System.out.println(x.getLast());
-					x.getQueue().setIdeaQueue(input10);
+					Idea newIdea = x.getQueue().setIdeaQueue(input10);
+					heap.insert(newIdea);
 				}
 			}
 				catch(NumberFormatException e){
@@ -285,7 +286,9 @@ System.out.println("Hello, Welcome to our Idea Database!");
 			}
 			
 		else if (input.equals("E") || input.equals("e")) {
-			System.out.println(heap.findMin());
+			System.out.println(heap.findMin().getDescript());
+			
+			
 		
 		}
 		else if (input.equals("F") || input.equals("f")) {
