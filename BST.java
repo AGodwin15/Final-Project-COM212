@@ -449,10 +449,10 @@ public void deleteSSN(StudentNode p) {
 		System.out.print("Last Name: " + tree.getLast());
 		System.out.println();
 		System.out.print("Idea Average Rating: " + tree.getAvgRating());	
-		System.out.println();	
-		System.out.println("Ideas: ");
 		System.out.println();
-		tree.getQueue().getIdeaQueue();
+		
+		//To get idea list:
+		//tree.getQueue().getIdeaQueue();
 
         if (tree.getLeft() != null){
         	System.out.println();
