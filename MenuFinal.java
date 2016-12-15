@@ -154,23 +154,25 @@ System.out.println("Hello, Welcome to our Idea Database!");
 					if (input3 > 99999999 && input3 < 1000000000){
 						StudentNode u = bst.searchRecordSSN(input3); 
 							if (u != null){
-							System.out.println("Student Found! Here is their information:");
-							System.out.println("Email: " + u.getEmail()); 
-						    System.out.println("SSN: " + u.getSocial());
-						    System.out.println("Student Number: " + u.getStunum());
-						    System.out.println("Last Name: " + u.getLast()); 
-						    System.out.println("Average Idea Rating: " + u.getAvgRating());
-						    System.out.println();
-						    System.out.println("Redirecting back to main menu...");
-							}
+								System.out.println("Student Found! Here is their information:");
+								System.out.println("Email: " + u.getEmail()); 
+							    System.out.println("SSN: " + u.getSocial());
+							    System.out.println("Student Number: " + u.getStunum());
+							    System.out.println("Last Name: " + u.getLast()); 
+							    System.out.println("Average Idea Rating: " + u.getAvgRating());
+							    System.out.println();
+							    System.out.println("Redirecting back to main menu...");
+							    continue;
+								}
 							else if (u == null) { 
 								System.out.println("Sorry that student record was not found!");
 								System.out.println("Redirecting...");
 								continue;
 							}	
 							System.out.println("Would you like to:");
-							System.out.println("(A) Delete the Student Record");
-							System.out.println("(B) Edit the Student Login credentials");
+							System.out.println("(A) Delete Student Record");
+							System.out.println("(B) Edit Student Login credentials");
+							System.out.println("(C) Return to main menu");
 							System.out.println("Which would you like to do?");
 							String input11 = in.next();
 						
@@ -189,36 +191,42 @@ System.out.println("Hello, Welcome to our Idea Database!");
 									System.out.println("(C) Change Both");
 									String input12 = in.next();
 							
-								try{
-									if (input12.equals("A") || input12.equals("a")){
-										StudentNode a = bst.searchRecordSSN(input3);
-										System.out.println("Enter new Last Name: ");
-										String input13 = in.next();
-										a.setLast(input13);
-										a.setLastSSN(input13);
-										System.out.println("Last name successfully updated!");
-									}
-									else if (input12.equals("B") || input12.equals("b")){
-										StudentNode a = bst.searchRecordSSN(input3);
-										System.out.println("Enter new Login Name: ");
-										String input14 = in.next();
-										a.setEmailSSN(input14);
-										a.setEmail(input14);
-										System.out.println("Login name successfully updated!");
-									}
-									else if (input12.equals("C") || input12.equals("c")){
-										StudentNode a = bst.searchRecordSSN(input3);
-										System.out.println("Enter new Last Name: ");
-										String input13 = in.next();
-										a.setLast(input13);
-										a.setLastSSN(input13);
-										System.out.println("Last name successfully updated!");
-										System.out.println();
-										System.out.println("Enter new Login Name: ");
-										String input14 = in.next();
-										a.setEmail(input14);
-										a.setEmailSSN(input14);
-										System.out.println("Login name successfully updated!");
+									try{
+										if (input12.equals("A") || input12.equals("a")){
+											StudentNode a = bst.searchRecordSSN(input3);
+											System.out.println("Enter new Last Name: ");
+											String input13 = in.next();
+											a.setLast(input13);
+											a.setLastSSN(input13);
+											System.out.println("Last name successfully updated!");
+										}
+										else if (input12.equals("B") || input12.equals("b")){
+											StudentNode a = bst.searchRecordSSN(input3);
+											System.out.println("Enter new Login Name: ");
+											String input14 = in.next();
+											a.setEmailSSN(input14);
+											a.setEmail(input14);
+											System.out.println("Login name successfully updated!");
+										}
+										else if (input12.equals("C") || input12.equals("c")){
+											StudentNode a = bst.searchRecordSSN(input3);
+											System.out.println("Enter new Last Name: ");
+											String input13 = in.next();
+											a.setLast(input13);
+											a.setLastSSN(input13);
+											System.out.println("Last name successfully updated!");
+											System.out.println();
+											System.out.println("Enter new Login Name: ");
+											String input14 = in.next();
+											a.setEmail(input14);
+											a.setEmailSSN(input14);
+											System.out.println("Login name successfully updated!");
+										}
+
+									else if(input11.equals("C") || input12.equals("c")) {
+										System.out.println("Redirecting...");
+										continue;
+
 									}
 								}
 								catch(Exception e) {
@@ -286,13 +294,44 @@ System.out.println("Hello, Welcome to our Idea Database!");
 			}
 			
 		else if (input.equals("E") || input.equals("e")) {
-			System.out.println(heap.findMin().getDescript());
+			System.out.println("Description: " + heap.findMin().getDescript());
+			System.out.println("Rating: " + heap.findMin().getRating());
+			try{
+				System.out.println("What would you like to do with the best idea?");
+				System.out.println();
+				System.out.println("(A) Sell");
+				System.out.println("(B) Return To Menu");
+				String input100 = in.next();
+
+				if (input100.equals("A") || input100.equals("a")) {
+					System.out.println("The idea '" + heap.findMin().getDescript() + "' has been sold!!!");
+					heap.deleteMin();
+					System.out.println("Redirecting to main menu...");
+					continue;
+				}
+				else if(input100.equals("B") || input100.equals("b")){
+					System.out.println("Redirecting....");
+					continue;
+				}
+			}
+			catch(Exception e) {
+				System.out.println();
+			}
 			
-			
-		
 		}
+	
 		else if (input.equals("F") || input.equals("f")) {
 			System.out.println("Thanks for using our program, have a lovely day!!!");
+			System.out.println("                       ");		
+			System.out.println("             _----------_				");
+			System.out.println("	   _|		 |_ 		");
+			System.out.println("	 _|	O    O	   |_		");
+			System.out.println("  	O_	  ii	    _O 		");
+			System.out.println("	  |_		  _|  		");
+			System.out.println("	    |_	 WWWW   _|  		");
+			System.out.println("              ----------    		");		
+			System.out.println("                  VV 				");		
+
 			System.out.println();
 			System.exit(0);
 		}
@@ -313,9 +352,9 @@ System.out.println("Hello, Welcome to our Idea Database!");
 			fileOut.close();
 			System.out.println("Serialized object successfully in output.txt");
 			} 
-       		   catch(IOException i) {
-			  i.printStackTrace();
-			}
+       	catch(IOException i) {
+			i.printStackTrace();
+		}
 	
 
 	System.exit(0);
