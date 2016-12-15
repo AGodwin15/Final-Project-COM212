@@ -42,8 +42,6 @@ public class Heap implements java.io.Serializable{
 			temp = (temp-1)/2;
 		}
 		n++;
-		System.out.println(array[temp]);
-		System.out.println(array[0]);
 		return array[temp];
 	}
 	
