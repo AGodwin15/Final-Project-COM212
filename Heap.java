@@ -15,13 +15,14 @@ public class Heap implements java.io.Serializable{
 		int n = 0;
 		array = new Idea[120];
 	}
+
 	
 	//creates the findMin method that returns the root of the tree/first node of the array
 	public Idea findMin(){
-		Idea x;
+		/*Idea x;
 		x = array[0];
 		System.out.println(x);
-
+		System.out.println("LENGTH OF HEAP: "+n);*/
 		return array[0];
 	}
 	
@@ -35,7 +36,7 @@ public class Heap implements java.io.Serializable{
 		array[n] = x;
 		int temp = n;
 		//while loop that uses the relationship between the children and parent nodes 
-		while(temp != 0 && array[temp].getRating() < array[(temp-1)/2].getRating()){
+		while(temp != 0 && array[temp].getRating() > array[(temp-1)/2].getRating()){
 			//if the child is less than the parent, swap the nodes 
 			swap(temp, (temp-1)/2);
 			temp = (temp-1)/2;
@@ -75,8 +76,8 @@ public class Heap implements java.io.Serializable{
 		
 		//if the root key is less than one of the children, then we need to check which child is less than
 		//the other and then swap the root with the lesser child 
-		while (array[min].getRating() < getRightChild(min) || array[min].getRating() < getLeftChild(min)){
-			if (getRightChild(min) > getLeftChild(min)){
+		while (array[min].getRating() > getRightChild(min) || array[min].getRating() > getLeftChild(min)){
+			if (getRightChild(min) < getLeftChild(min)){
 				//swaps the min and the left child 
 				swap(array[min].getRating(), getLeftChild(min));
 				min = getLeftChild(min);
@@ -91,11 +92,14 @@ public class Heap implements java.io.Serializable{
 		return array[min];
 	}
 	
+
 	//creates the printTree method that will print out the array in order 
 	public void printTree() {
 		System.out.println(n);
-		for (int i = n-1; i >= 0; i--){
-			System.out.println(array[i].getIdeaNum());
+		for (int i = 0; i < n; i++){
+			System.out.print(array[i].getRating());
+			System.out.print(" --- ");
+			System.out.println(array[i].getDescript());
 		}
 	}
 }
