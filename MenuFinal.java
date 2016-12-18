@@ -28,7 +28,9 @@ System.out.println("Hello, Welcome to our Idea Database!");
 						heap = (Heap) inn.readObject();
 						inn.close();
 						fileIn.close();
-						} 
+						System.out.println("Database successfully found!");
+						System.out.println();
+					} 
 
 						catch(IOException i) {
 							i.printStackTrace();
@@ -154,6 +156,7 @@ System.out.println("Hello, Welcome to our Idea Database!");
 					if (input3 > 99999999 && input3 < 1000000000){
 						StudentNode u = bst.searchRecordSSN(input3); 
 							if (u != null){
+								System.out.println();
 								System.out.println("Student Found! Here is their information:");
 								System.out.println("Email: " + u.getEmail()); 
 							    System.out.println("SSN: " + u.getSocial());
@@ -162,7 +165,7 @@ System.out.println("Hello, Welcome to our Idea Database!");
 							    System.out.println("Average Idea Rating: " + u.getAvgRating());
 							    System.out.println();
 							    System.out.println("Redirecting back to main menu...");
-							    continue;
+							    //continue;
 								}
 							else if (u == null) { 
 								System.out.println("Sorry that student record was not found!");
@@ -173,6 +176,7 @@ System.out.println("Hello, Welcome to our Idea Database!");
 							System.out.println("(A) Delete Student Record");
 							System.out.println("(B) Edit Student Login credentials");
 							System.out.println("(C) Return to main menu");
+							System.out.println();
 							System.out.println("Which would you like to do?");
 							String input11 = in.next();
 						
@@ -304,9 +308,10 @@ System.out.println("Hello, Welcome to our Idea Database!");
 				String input100 = in.next();
 
 				if (input100.equals("A") || input100.equals("a")) {
-					System.out.println("The idea '" + heap.findMin().getDescript() + "' has been sold!!!");
-					heap.deleteMin();
+					System.out.println("The idea '" + heap.findMin().getDescript() + "' has been sold!");
+					System.out.println();
 					System.out.println("Redirecting to main menu...");
+					heap.deleteMin();
 					continue;
 				}
 				else if(input100.equals("B") || input100.equals("b")){
@@ -322,8 +327,10 @@ System.out.println("Hello, Welcome to our Idea Database!");
 	
 		else if (input.equals("F") || input.equals("f")) {
 			System.out.println("Thanks for using our program, have a lovely day!!!");
-			System.out.println("                       ");		
-			System.out.println("             _----------_				");
+			
+System.out.println("                 ____              ");	
+			System.out.println("                |    |  ");		
+			System.out.println("          ------------------				");
 			System.out.println("	   _|		 |_ 		");
 			System.out.println("	 _|	O    O	   |_		");
 			System.out.println("  	O_	  ii	    _O 		");
@@ -333,31 +340,28 @@ System.out.println("Hello, Welcome to our Idea Database!");
 			System.out.println("                  VV 				");		
 
 			System.out.println();
+			
+			try {
+				FileOutputStream fileOut = new FileOutputStream("output.txt");
+				ObjectOutputStream out = new ObjectOutputStream(fileOut);
+				out.writeObject(bst);
+				out.writeObject(heap);
+
+				out.close();
+				fileOut.close();
+				System.out.println("Serialized object successfully in output.txt");
+			} 
+       	
+       		catch(IOException i) {
+				i.printStackTrace();
+			}
+			
 			System.exit(0);
 		}
 
-		else{
+		else {
 			continue;
 		}
 	}
-
-		//Serialize, put this right before quitting the program
-		try {
-			FileOutputStream fileOut = new FileOutputStream("output.txt");
-			ObjectOutputStream out = new ObjectOutputStream(fileOut);
-			out.writeObject(bst);
-			out.writeObject(heap);
-
-			out.close();
-			fileOut.close();
-			System.out.println("Serialized object successfully in output.txt");
-			} 
-       	catch(IOException i) {
-			i.printStackTrace();
-		}
-	
-
-	System.exit(0);
 }
-
 }
